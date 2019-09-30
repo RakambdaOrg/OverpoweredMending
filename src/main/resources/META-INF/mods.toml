@@ -11,10 +11,7 @@ authors="RakSrinaNa"
 	version="${file.jarVersion}"
 	displayName="Overpowered Mending"
 	updateJSONURL="https://raw.githubusercontent.com/RakSrinaNa/OverpoweredMending/1.14.4/update.json"
-	description='''
-Changes Mending behaviour to repair what is in your inventory and need it the most.
-No need to have it equipped anymore.
-'''
+	description='''Changes Mending behaviour to repair what is in your inventory and need it the most. No need to have it equipped anymore.'''
 
 [[dependencies.overpowered_mending]]
     modId="forge"
