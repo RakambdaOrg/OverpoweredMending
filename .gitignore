@@ -1,10 +1,11 @@
 *.zip
-.gradle
-build
-eclipse
-.idea
 *.iml
 
-workspace/
+.gradle
+.idea
+build
+eclipse
 /run-client
 /run-server
+
+version.properties
