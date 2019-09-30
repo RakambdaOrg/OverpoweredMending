@@ -1,0 +1,10 @@
+*.zip
+.gradle
+build
+eclipse
+.idea
+*.iml
+
+workspace/
+/run-client
+/run-server
