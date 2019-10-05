@@ -20,8 +20,6 @@ public final class ForgeEventSubscriber {
 	
 	@SubscribeEvent(priority = EventPriority.LOWEST)
 	public static void onPlayerPickupXpEvent(PlayerPickupXpEvent e){
-		System.out.println("TEST");
-		
 		e.setCanceled(true);
 		
 		PlayerEntity player = e.getPlayer();
