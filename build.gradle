@@ -329,7 +329,7 @@ task makeChangeLog() {
 
 void moveOldLog() {
     def new_log_file = file("changes.md")
-    def old_log_file = file("old_logs.md")
+    def old_log_file = file("CHANGELOG.md")
 
     if (new_log_file.exists()) {
         if (!old_log_file.exists())
