@@ -49,7 +49,6 @@ archivesBaseName = project.archivesBaseName
 def versionInfo = getModVersion()
 System.out.println(versionInfo)
 version = "${versionInfo['version']}"
-def build_num = getBuildNumber()
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
@@ -77,6 +76,16 @@ minecraft {
     }
     if (project.hasProperty('server_args')) {
         serverJvmArgs += project.server_args
+    }
+}
+
+processResources {
+    inputs.property 'version', project.version
+    inputs.property 'mcversion', project.minecraft.version
+
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+        expand 'version': "${versionInfo['version_short']}", 'mcversion': project.minecraft.version
     }
 }
 
@@ -119,8 +128,8 @@ curseforge {
         addGameVersion "${project.mc_version}"
         changelog = getAllChangeLog()
         releaseType = 'release'
-        mainArtifact jar
-        relations {
+        mainArtifact jar {
+            displayName = "${project.version}"
         }
     }
     options {
@@ -133,11 +142,11 @@ githubRelease {
     owner = "RakSrinaNa"
     repo = 'OverpoweredMending'
     token = buildProperties.secrets['github_token'].string
-    tagName = getVersion()
-    releaseName = getVersion()
+    tagName = "${versionInfo['version_short']}"
+    releaseName = "${project.version}"
     targetCommitish = "${project.mc_version}"
     body {
-        getLatestChangeLog()
+        return getLatestChangeLog()
     }
     releaseAssets = files(jar.archivePath)
 }
@@ -307,8 +316,8 @@ String getLatestChangeLog() {
     final def log_file = file("changes.md")
     final def header_file = file("header.md")
     def log = log_file.exists() ? log_file.text : "No change log provided."
-    def header = header_file.exists() ? header_file.text : "#Change Log"
-    return header + System.lineSeparator() + log
+    def header = header_file.exists() ? header_file.text + System.lineSeparator() : ""
+    return header + log
 }
 
 task makeChangeLog() {
