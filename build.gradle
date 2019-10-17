@@ -137,13 +137,12 @@ githubRelease {
     owner = "RakSrinaNa"
     repo = 'OverpoweredMending'
     token = buildProperties.secrets['github_token'].string
-    tagName = "${versionInfo['version_short']}"
-    releaseName = "${project.version}"
+    tagName = "${project.mc_version}-${versionInfo['version_short']}"
+    releaseName = "${project.mc_version}-${project.version}"
     targetCommitish = "${project.mc_version}"
     body {
         return getLatestChangeLog()
     }
-    releaseAssets = files(jar.archivePath)
 }
 
 artifacts {
