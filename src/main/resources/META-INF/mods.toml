@@ -16,7 +16,7 @@ authors="RakSrinaNa"
 [[dependencies.overpowered_mending]]
     modId="forge"
     mandatory=true
-    versionRange="[28.1.26,)"
+    versionRange="[28.1.0,)"
     ordering="NONE"
 	side="BOTH"
 [[dependencies.overpowered_mending]]
