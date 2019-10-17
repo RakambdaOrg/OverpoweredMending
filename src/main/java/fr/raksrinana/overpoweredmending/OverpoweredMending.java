@@ -1,36 +1,21 @@
 package fr.raksrinana.overpoweredmending;
 
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.ModContainer;
-import net.minecraftforge.fml.ModList;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import java.util.Optional;
+import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(OverpoweredMending.MOD_ID)
+@Mod(modid = OverpoweredMending.MOD_ID, version = OverpoweredMending.VERSION)
 public class OverpoweredMending{
 	public static final String MOD_ID = "overpowered_mending";
 	public static final String MOD_NAME = "Overpowered Mending";
-	public static final String VERSION = "1.0.2";
-	public static final Logger LOGGER = LogManager.getLogger(MOD_NAME);
+	public static final String VERSION = "1.0.1";
 	
 	public OverpoweredMending(){
 	}
 	
-	public static String getVersion(){
-		Optional<? extends ModContainer> o = ModList.get().getModContainerById(MOD_ID);
-		if(o.isPresent()){
-			return o.get().getModInfo().getVersion().toString();
-		}
-		return "NONE";
-	}
-	
-	public static boolean isDevBuild(){
-		return "NONE".equals(getVersion());
-	}
-	
-	public static ResourceLocation getId(String path){
-		return new ResourceLocation(MOD_ID, path);
+	@EventHandler
+	public void onInit(final FMLPreInitializationEvent event){
+		MinecraftForge.EVENT_BUS.register(ForgeEventSubscriber.class);
 	}
 }

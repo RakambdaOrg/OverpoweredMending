@@ -1,3 +1,3 @@
-## [1.0.2] - Unreleased
+## [1.0.1] - 2019-10-17
 
-- Updated to forge `28.1.44`.
+- First `1.12.2` release

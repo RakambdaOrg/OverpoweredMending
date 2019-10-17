@@ -1,11 +1,12 @@
 buildscript {
     repositories {
         maven { url = 'https://files.minecraftforge.net/maven' }
+        maven { url = 'https://plugins.gradle.org/m2/' }
         jcenter()
         mavenCentral()
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
+        classpath "net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT"
     }
 }
 
@@ -22,7 +23,7 @@ buildProperties {
 }
 
 apply plugin: 'scala'
-apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: 'eclipse'
 apply plugin: "com.github.breadmoirai.github-release"
 
@@ -53,36 +54,30 @@ def build_num = getBuildNumber()
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
 minecraft {
-    mappings channel: project.mcp_channel.toString(), version: project.mcp_mappings.toString()
+    version = project.forge_version
+    runDir = 'run'
+    mappings = project.mcp_channel + '_' + project.mcp_mappings
 
-    runs {
-        client {
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            property 'forge.logging.console.level', 'debug'
-            workingDirectory project.file('run-client')
+    // disable server gui
+    serverRunArgs += 'nogui'
 
-            mods {
-                overpowered_mending {
-                    source sourceSets.main
-                }
-            }
-        }
+    // skip the screen to confirm that you want to load a world with missing registry entries
+    serverJvmArgs += '-Dfml.doNotBackup=true'
+    clientJvmArgs += '-Dfml.doNotBackup=true'
 
-        server {
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            property 'forge.logging.console.level', 'debug'
-            workingDirectory project.file('run-server')
-            mods {
-                overpowered_mending {
-                    source sourceSets.main
-                }
-            }
-        }
+    // skip having to confirm on server
+    serverJvmArgs += '-Dfml.queryResult=confirm'
+
+    //skip jansi warnings in the log
+    serverJvmArgs += '-Dlog4j.skipJansi=true'
+    clientJvmArgs += '-Dlog4j.skipJansi=true'
+
+    if (project.hasProperty('client_args')) {
+        clientJvmArgs += project.client_args
     }
-}
-
-dependencies {
-    minecraft "net.minecraftforge:forge:${project.forge_version}"
+    if (project.hasProperty('server_args')) {
+        serverJvmArgs += project.server_args
+    }
 }
 
 jar {

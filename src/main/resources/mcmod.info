@@ -1,0 +1,11 @@
+[{
+  "modid": "overpowered_mending",
+  "name": "Overpowered Mending",
+  "description": "Changes Mending behaviour to repair what is in your inventory and need it the most. No need to have it equipped anymore.",
+  "version": "${file.jarVersion}",
+  "mcversion": "1.12.2",
+  "logoFile": "assets/overpowered_mending/logo.png",
+  "url": "https://github.com/RakSrinaNa/OverpoweredMending",
+  "updateJSON": "https://raw.githubusercontent.com/RakSrinaNa/OverpoweredMending/1.12.2/update.json",
+  "authorList": ["RakSrinaNa"]
+}]

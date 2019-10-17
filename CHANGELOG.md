@@ -1,8 +1,4 @@
-## [1.0.1] - 2019-10-05
+## [1.0.1] - 2019-10-17
 
-- Updated forge to `28.1.31`
-- Removed test log.
+- First `1.12.2` release
 
-## [1.0.0] - 2019-09-30
-
-- First release
