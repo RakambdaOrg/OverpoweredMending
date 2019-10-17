@@ -8,6 +8,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.player.PlayerPickupXpEvent;
+import net.minecraftforge.event.entity.player.PlayerXpEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -19,7 +20,7 @@ public final class ForgeEventSubscriber {
 	private static final int DURABILITY_PER_XP = 2;
 	
 	@SubscribeEvent(priority = EventPriority.LOWEST)
-	public static void onPlayerPickupXpEvent(PlayerPickupXpEvent e){
+	public static void onPlayerPickupXpEvent(PlayerXpEvent.PickupXp e){
 		e.setCanceled(true);
 		
 		PlayerEntity player = e.getPlayer();
@@ -36,10 +37,11 @@ public final class ForgeEventSubscriber {
 		player.onItemPickup(xp, 1);
 		
 		// -> The mending effect is applied and the xp value is recalculated.
-		if (!item.isEmpty()) {
+		while (!item.isEmpty() && xp.xpValue > 0) {
 			int realRepair = Math.min(xp.xpValue * DURABILITY_PER_XP, item.getDamage());
 			xp.xpValue -= realRepair / DURABILITY_PER_XP;
 			item.setDamage(item.getDamage() - realRepair);
+			item = getDamagedEnchantedItem(Enchantments.MENDING, player);
 		}
 		
 		// -> The XP are added to the player's experience.
