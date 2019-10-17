@@ -121,10 +121,10 @@ curseforge {
         id = "${project.curseforge_project_id}"
         changelogType = 'markdown'
         addGameVersion "${project.mc_version}"
-        changelog = getAllChangeLog()
+        changelog = getLatestChangeLog()
         releaseType = 'release'
         mainArtifact(jar){
-            displayName = "${project.version}"
+            displayName = "${project.archivesBaseName}-${project.mc_version}-${project.version}"
         }
     }
     options {
