@@ -5,7 +5,7 @@
   "version": "${version}",
   "mcversion": "${mcversion}",
   "logoFile": "assets/overpowered_mending/logo.png",
-  "url": "https://github.com/RakSrinaNa/OverpoweredMending",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/overpowered-mending",
   "updateJSON": "https://raw.githubusercontent.com/RakSrinaNa/OverpoweredMending/1.12.2/update.json",
   "authorList": ["RakSrinaNa"]
 }]
