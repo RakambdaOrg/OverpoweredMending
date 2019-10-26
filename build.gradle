@@ -18,7 +18,10 @@ plugins {
 
 buildProperties {
     secrets {
-        using project.file('secrets.properties')
+        using(file('secrets.properties')).or(System.getenv()).or([
+                "curseforge_api_key"    : "N/A",
+                "github_token"    : "N/A"
+        ])
     }
 }
 
@@ -140,7 +143,7 @@ curseforge {
 
 githubRelease {
     owner = "RakSrinaNa"
-    repo = 'OverpoweredMending'
+    repo = project.repoName
     token = buildProperties.secrets['github_token'].string
     tagName = "${project.mc_version}-${versionInfo['version_short']}"
     releaseName = "${project.mc_version}-${project.version}"
