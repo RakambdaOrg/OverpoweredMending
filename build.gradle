@@ -18,8 +18,8 @@ plugins {
 buildProperties {
     secrets {
         using(file('secrets.properties')).or(System.getenv()).or([
-                "curseforge_api_key"    : "N/A",
-                "github_token"    : "N/A"
+                "curseforge_api_key": "N/A",
+                "github_token"      : "N/A"
         ])
     }
 }
@@ -126,7 +126,7 @@ curseforge {
         addGameVersion "${project.mc_version}"
         changelog = getLatestChangeLog()
         releaseType = 'release'
-        mainArtifact(jar){
+        mainArtifact(jar) {
             displayName = "${project.archivesBaseName}-${project.mc_version}-${project.version}"
         }
     }
@@ -140,8 +140,8 @@ githubRelease {
     owner = "RakSrinaNa"
     repo = project.repoName
     token = buildProperties.secrets['github_token'].string
-    tagName = "${project.mc_version}-${versionInfo['version_short']}"
-    releaseName = "${project.mc_version}-${project.version}"
+    tagName = "${project.mc_version}-${project.version}"
+    releaseName = "${project.mc_version}-${versionInfo['version_short']}"
     targetCommitish = "${project.mc_version}"
     body {
         return getLatestChangeLog()
@@ -281,6 +281,8 @@ build.finalizedBy incrementBuild // only increment on successful builds
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
 
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.concurrent.TimeUnit
 
 def writeUpdateJson() {
@@ -337,7 +339,10 @@ void moveOldLog() {
     if (new_log_file.exists()) {
         if (!old_log_file.exists())
             old_log_file.createNewFile()
-        def combined = new_log_file.text + System.lineSeparator() + old_log_file.text
+        def version = getModVersion()
+        def dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+        def currDate = LocalDate.now()
+        def combined = "## [${project.mc_version}-${version['version_short']}] - " + currDate.format(dateFormat) + System.lineSeparator() + new_log_file.text.trim() + System.lineSeparator() + System.lineSeparator() + old_log_file.text
         old_log_file.setText(combined)
     }
 }
@@ -349,4 +354,3 @@ task createUpdateJson {
     }
 }
 build.finalizedBy createUpdateJson
-
