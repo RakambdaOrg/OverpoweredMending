@@ -125,7 +125,7 @@ curseforge {
         changelogType = 'markdown'
         addGameVersion "${project.mc_version}"
         changelog = getLatestChangeLog()
-        releaseType = 'release'
+        releaseType = 'beta'
         mainArtifact(jar) {
             displayName = "${project.archivesBaseName}-${project.mc_version}-${project.version}"
         }
