@@ -2,10 +2,11 @@
     "homepage": "https://github.com/RakSrinaNa/OverpoweredMending",
     "changelog": "https://github.com/RakSrinaNa/OverpoweredMending/blob/1.16.1/CHANGELOG.md",
     "1.16.1": {
+        "2.2.1": "https://github.com/RakSrinaNa/OverpoweredMending/blob/1.16.1/CHANGELOG.md",
         "2.0.0": "https://github.com/RakSrinaNa/OverpoweredMending/blob/1.16.1/CHANGELOG.md"
     },
     "promos": {
-        "1.16.1-latest": "2.0.0",
-        "1.16.1-recommended": "2.0.0"
+        "1.16.1-latest": "2.2.1",
+        "1.16.1-recommended": "2.2.1"
     }
 }
