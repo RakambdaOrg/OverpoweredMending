@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.Comparator;
-import java.util.stream.Stream;
+import java.util.stream.IntStream;
 
 @Mixin(ExperienceOrbEntity.class)
 public class ExperienceOrbEntityMixin{
@@ -44,12 +44,9 @@ public class ExperienceOrbEntityMixin{
 	
 	private static ItemStack getDamagedEnchantedItem(Enchantment ench, PlayerEntity player){
 		PlayerInventory playerInventory = player.inventory;
-		
-		return Stream.concat(Stream.concat(
-				playerInventory.armor.stream(),
-				playerInventory.main.stream()),
-				playerInventory.offHand.stream()
-		).filter(is -> !is.isEmpty())
+		return IntStream.range(0, playerInventory.size())
+				.mapToObj(playerInventory::getStack)
+				.filter(is -> !is.isEmpty())
 				.filter(ItemStack::isDamageable)
 				.filter(ItemStack::isDamaged)
 				.filter(is -> EnchantmentHelper.getLevel(ench, is) > 0)
