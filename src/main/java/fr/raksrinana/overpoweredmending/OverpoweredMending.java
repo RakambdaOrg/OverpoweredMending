@@ -1,11 +1,10 @@
 package fr.raksrinana.overpoweredmending;
 
-import net.minecraftforge.fml.common.Mod;
+import net.fabricmc.api.ModInitializer;
 
-@Mod(OverpoweredMending.MOD_ID)
-public class OverpoweredMending{
-	public static final String MOD_ID = "overpowered_mending";
+public class OverpoweredMending implements ModInitializer{
+	@Override
+	public void onInitialize(){
 	
-	public OverpoweredMending(){
 	}
 }
