@@ -1,3 +1,6 @@
+## [Fabric-1.16.5-2.2.3] - 2021-02-05
+* Fix duplication of received xp (#5)
+
 ## [Fabric-1.16.5-2.2.2] - 2021-01-15
 * Port to 1.16.5
 

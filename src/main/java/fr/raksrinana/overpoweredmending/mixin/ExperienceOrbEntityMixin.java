@@ -18,28 +18,31 @@ import java.util.stream.IntStream;
 public class ExperienceOrbEntityMixin{
 	private static final int DURABILITY_PER_XP = 2;
 	
-	@Inject(method = "onPlayerCollision", at = @At(value = "TAIL"), cancellable = true)
+	@Inject(method = "onPlayerCollision", at = @At(value = "HEAD"), cancellable = true)
 	public void onPlayerCollision(PlayerEntity player, CallbackInfo callbackInfo){
-		callbackInfo.cancel();
-		
 		ExperienceOrbEntity orb = (ExperienceOrbEntity) (Object) this;
 		
-		ItemStack item = getDamagedEnchantedItem(Enchantments.MENDING, player);
-		player.experiencePickUpDelay = 2;
-		player.sendPickup(orb, 1);
-		
-		int xpAmount = orb.getExperienceAmount();
-		
-		while(!item.isEmpty() && xpAmount > 0){
-			int realRepair = Math.min(xpAmount * DURABILITY_PER_XP, item.getDamage());
-			xpAmount -= realRepair / DURABILITY_PER_XP;
-			item.setDamage(item.getDamage() - realRepair);
-			item = getDamagedEnchantedItem(Enchantments.MENDING, player);
+		if (!orb.getEntityWorld().isClient()){
+			if(orb.pickupDelay == 0 && player.experiencePickUpDelay == 0){
+				player.experiencePickUpDelay = 2;
+				player.sendPickup(orb, 1);
+				
+				ItemStack item = getDamagedEnchantedItem(Enchantments.MENDING, player);
+				int xpAmount = orb.getExperienceAmount();
+				
+				while(!item.isEmpty() && xpAmount > 0){
+					int realRepair = Math.min(xpAmount * DURABILITY_PER_XP, item.getDamage());
+					xpAmount -= realRepair / DURABILITY_PER_XP;
+					item.setDamage(item.getDamage() - realRepair);
+					item = getDamagedEnchantedItem(Enchantments.MENDING, player);
+				}
+				if(xpAmount > 0){
+					player.addExperience(xpAmount);
+				}
+				orb.remove();
+				callbackInfo.cancel();
+			}
 		}
-		if(xpAmount > 0){
-			player.addExperience(xpAmount);
-		}
-		orb.remove();
 	}
 	
 	private static ItemStack getDamagedEnchantedItem(Enchantment ench, PlayerEntity player){
