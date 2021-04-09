@@ -1,1 +1,2 @@
-* Port to 1.16.5
+* Use official minecraft mappings
+* Jar should now be signed
