@@ -1,5 +1,6 @@
-package fr.raksrinana.overpoweredmending;
+package fr.raksrinana.overpoweredmending.forge;
 
+import fr.raksrinana.overpoweredmending.OverpoweredMending;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;

@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "${modId}",
+  "version": "${version}",
+  "name": "OverpoweredMending",
+  "description": "Changes Mending behaviour to repair what is in your inventory and need it the most. No need to have it equipped anymore.",
+  "authors": [
+    "RakSrinaNa"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/overpowered-mending",
+    "issues": "https://github.com/RakSrinaNa/OverpoweredMending/issues",
+    "sources": "https://github.com/RakSrinaNa/OverpoweredMending"
+  },
+  "license": "GPL-3.0",
+  "icon": "logo.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "fr.raksrinana.overpoweredmending.fabric.OverpoweredMending"
+    ],
+    "client": [],
+    "server": [],
+    "modmenu": [
+      "fr.raksrinana.overpoweredmending.fabric.ModMenuImpl"
+    ]
+  },
+  "mixins": [
+    "overpoweredmending.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "fabric-resource-loader-v0": "*",
+    "fabric": ">=0.20"
+  },
+  "suggests": {
+    "modmenu": "*"
+  }
+}
