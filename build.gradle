@@ -121,7 +121,7 @@ def writeUpdateJson() {
     def json = slurper.parse(file)
     def changelogUrl = "https://github.com/${project.repoUser}/${project.repoName}/blob/${project.minecraft_version}/CHANGELOG.md"
 
-    json['changelog'] = changelogUrl
+    json["changelog"] = changelogUrl
 
     // TODO: Maybe add something to create an abbreviated changelog? May not be useful...
     if (!json[project.minecraft_version].containsKey(version.toString()))
