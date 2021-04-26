@@ -2,7 +2,7 @@
 
 ## [Unreleased]
 ### Changed
-- Fabric - Fixed potential incompatibility with other mods
+- Jars now contains both Forge & Fabric versions
 
 ## [1.16.5-2.2.2] - 2021-01-15
 ### Changed
