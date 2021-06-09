@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 ### Changed
+- Port to 1.17
+
+## [1.16.5-2.2.3] - 2021-06-09
+### Changed
 - Jars now contains both Forge & Fabric versions
 
 ## [1.16.5-2.2.2] - 2021-01-15

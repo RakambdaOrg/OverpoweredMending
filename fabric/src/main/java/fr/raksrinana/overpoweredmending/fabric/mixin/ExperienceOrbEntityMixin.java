@@ -1,7 +1,6 @@
 package fr.raksrinana.overpoweredmending.fabric.mixin;
 
 import net.minecraft.world.entity.ExperienceOrb;
-import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -20,18 +19,18 @@ public class ExperienceOrbEntityMixin{
 	
 	@Inject(method = "playerTouch", at = @At(value = "HEAD"), cancellable = true)
 	public void onPlayerCollision(Player player, CallbackInfo callbackInfo){
-		ExperienceOrb orb = (ExperienceOrb) (Object) this;
+		var orb = (ExperienceOrb) (Object) this;
 		
 		if(!orb.getCommandSenderWorld().isClientSide()){
-			if(orb.throwTime == 0 && player.takeXpDelay == 0){
+			if(player.takeXpDelay == 0){
 				player.takeXpDelay = 2;
 				player.take(orb, 1);
 				
-				ItemStack item = getDamagedEnchantedItem(Enchantments.MENDING, player);
-				int xpAmount = orb.getValue();
+				var item = getDamagedEnchantedItem(Enchantments.MENDING, player);
+				var xpAmount = orb.getValue();
 				
 				while(!item.isEmpty() && xpAmount > 0){
-					int realRepair = Math.min(xpAmount * DURABILITY_PER_XP, item.getDamageValue());
+					var realRepair = Math.min(xpAmount * DURABILITY_PER_XP, item.getDamageValue());
 					xpAmount -= realRepair / DURABILITY_PER_XP;
 					item.setDamageValue(item.getDamageValue() - realRepair);
 					item = getDamagedEnchantedItem(Enchantments.MENDING, player);
@@ -39,14 +38,14 @@ public class ExperienceOrbEntityMixin{
 				if(xpAmount > 0){
 					player.giveExperiencePoints(xpAmount);
 				}
-				orb.remove();
+				orb.discard();
 				callbackInfo.cancel();
 			}
 		}
 	}
 	
 	private static ItemStack getDamagedEnchantedItem(Enchantment ench, Player player){
-		Inventory playerInventory = player.inventory;
+		var playerInventory = player.getInventory();
 		return IntStream.range(0, playerInventory.getContainerSize())
 				.mapToObj(playerInventory::getItem)
 				.filter(is -> !is.isEmpty())
