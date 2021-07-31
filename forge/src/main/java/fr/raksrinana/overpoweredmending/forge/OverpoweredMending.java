@@ -1,4 +1,4 @@
-package fr.raksrinana.overpoweredmending;
+package fr.raksrinana.overpoweredmending.forge;
 
 import net.minecraftforge.fml.common.Mod;
 

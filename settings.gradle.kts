@@ -19,4 +19,4 @@ pluginManagement {
 rootProject.name = "OverpoweredMending"
 include("common")
 include("fabric")
-//include("forge")
+include("forge")

@@ -1,13 +1,10 @@
 package fr.raksrinana.overpoweredmending.forge;
 
-import fr.raksrinana.overpoweredmending.OverpoweredMending;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.Enchantments;
-import net.minecraft.entity.item.ExperienceOrbEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraftforge.event.entity.player.PlayerXpEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -22,9 +19,9 @@ public final class ForgeEventSubscriber{
 	@SubscribeEvent(priority = EventPriority.LOWEST)
 	public static void onPlayerPickupXpEvent(PlayerXpEvent.PickupXp e){
 		e.setCanceled(true);
-		PlayerEntity player = e.getPlayer();
-		ExperienceOrbEntity xp = e.getOrb();
-		ItemStack item = getDamagedEnchantedItem(Enchantments.MENDING, player);
+		var player = e.getPlayer();
+		var xp = e.getOrb();
+		var item = getDamagedEnchantedItem(Enchantments.MENDING, player);
 		// See EntityXPOrb#onCollideWithPlayer for details.
 		// All requirements for picking up XP are met at this point.
 		// -> EntityPlayer#xpCooldown is set to 2.
@@ -33,7 +30,7 @@ public final class ForgeEventSubscriber{
 		player.take(xp, 1);
 		// -> The mending effect is applied and the xp value is recalculated.
 		while(!item.isEmpty() && xp.getValue() > 0){
-			int realRepair = Math.min(xp.getValue() * DURABILITY_PER_XP, item.getDamageValue());
+			var realRepair = Math.min(xp.getValue() * DURABILITY_PER_XP, item.getDamageValue());
 			xp.value -= realRepair / DURABILITY_PER_XP;
 			item.setDamageValue(item.getDamageValue() - realRepair);
 			item = getDamagedEnchantedItem(Enchantments.MENDING, player);
@@ -43,11 +40,11 @@ public final class ForgeEventSubscriber{
 			player.giveExperiencePoints(xp.getValue());
 		}
 		// -> The XP orb is killed.
-		xp.remove();
+		xp.discard();
 	}
 	
-	private static ItemStack getDamagedEnchantedItem(Enchantment ench, PlayerEntity player){
-		IInventory playerInventory = player.inventory;
+	private static ItemStack getDamagedEnchantedItem(Enchantment ench, Player player){
+		var playerInventory = player.getInventory();
 		return IntStream.range(0, playerInventory.getContainerSize())
 				.mapToObj(playerInventory::getItem)
 				.filter(is -> !is.isEmpty())

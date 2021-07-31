@@ -1,6 +1,6 @@
 {
     "homepage": "https://github.com/RakSrinaNa/EditSign",
-    "changelog": "https://github.com/RakSrinaNa/OverpoweredMending/blob/1.16.5/CHANGELOG.md",
+    "changelog": "https://github.com/RakSrinaNa/OverpoweredMending/blob/1.17.1/CHANGELOG.md",
     "1.16.5": {
         "2.2.3": "https://github.com/RakSrinaNa/OverpoweredMending/blob/1.16.5/CHANGELOG.md",
         "2.2.2": "https://github.com/RakSrinaNa/OverpoweredMending/blob/1.16.5/CHANGELOG.md",
@@ -8,6 +8,16 @@
     },
     "promos": {
         "1.16.5-latest": "2.2.3",
-        "1.16.5-recommended": "2.2.3"
+        "1.16.5-recommended": "2.2.3",
+        "1.17-latest": "2.2.3",
+        "1.17-recommended": "2.2.3",
+        "1.17.1-latest": "2.2.4",
+        "1.17.1-recommended": "2.2.4"
+    },
+    "1.17": {
+        "2.2.3": "https://github.com/RakSrinaNa/OverpoweredMending/blob/1.17/CHANGELOG.md"
+    },
+    "1.17.1": {
+        "2.2.4": "https://github.com/RakSrinaNa/OverpoweredMending/blob/1.17.1/CHANGELOG.md"
     }
 }

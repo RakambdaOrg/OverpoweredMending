@@ -1,4 +1,4 @@
-import net.minecraftforge.gradle.common.task.SignJar
+import net.minecraftforge.gradle.common.tasks.SignJar
 
 buildscript {
     repositories {
@@ -6,11 +6,10 @@ buildscript {
             name = "forge"
             url = "https://maven.minecraftforge.net"
         }
-        jcenter()
         mavenCentral()
     }
     dependencies {
-        classpath group: "net.minecraftforge.gradle", name: "ForgeGradle", version: "5.1.+", changing: true
+        classpath group: "net.minecraftforge.gradle", name: "ForgeGradle", version: "5.1.16", changing: true
     }
 }
 
@@ -21,9 +20,10 @@ minecraft {
     runs {
         client {
             workingDirectory project.file("../run")
+            property "forge.logging.markers", "REGISTRIES"
             property "forge.logging.console.level", "debug"
             mods {
-                fallingtree {
+                overpoweredmending {
                     source sourceSets.main
                 }
             }
@@ -31,9 +31,23 @@ minecraft {
 
         server {
             workingDirectory project.file("../run")
+            property "forge.logging.markers", "REGISTRIES"
             property "forge.logging.console.level", "debug"
             mods {
-                fallingtree {
+                overpoweredmending {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        data {
+            workingDirectory project.file("../run")
+            property "forge.logging.markers", "REGISTRIES"
+            property "forge.logging.console.level", "debug"
+            args '--mod', 'overpoweredmending', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+
+            mods {
+                overpoweredmending {
                     source sourceSets.main
                 }
             }
@@ -41,12 +55,16 @@ minecraft {
     }
 }
 
+sourceSets.main.resources { srcDir 'src/generated/resources' }
+
 dependencies {
-    minecraft("net.minecraftforge:forge:${forge_version}")
+    minecraft(libs.forge)
     implementation project(":common")
 }
 
 processResources {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+
     from "src/main/resources", "../common/src/main/resources"
 
     filesMatching("META-INF/mods.toml") {

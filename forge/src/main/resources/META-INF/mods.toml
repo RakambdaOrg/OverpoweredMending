@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[36,)"
+loaderVersion="[37,)"
 issueTrackerURL="https://github.com/${repoUser}/${repoName}/issues"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/overpowered-mending"
 logoFile="logo.png"
@@ -17,7 +17,7 @@ description='''Changes Mending behaviour to repair what is in your inventory and
 [[dependencies.overpoweredmending]]
 modId="forge"
 mandatory=true
-versionRange="[36.0.0,)"
+versionRange="[37.0.0,)"
 ordering="NONE"
 side="BOTH"
 [[dependencies.overpoweredmending]]
