@@ -4,7 +4,7 @@
   "package": "fr.raksrinana.overpoweredmending.fabric.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
-    "ExperienceOrbEntityMixin"
+    "ExperienceOrbMixin"
   ],
   "client": [],
   "server": [],

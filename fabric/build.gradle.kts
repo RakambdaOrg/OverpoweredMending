@@ -33,7 +33,10 @@ tasks {
 
 loom {
     val modId: String by project
-    refmapName = "fabric.${modId}.refmap.json"
+
+    mixin {
+        getDefaultRefmapName().set("fabric.${modId}.refmap.json")
+    }
 
     runs {
         create("overpoweredMendingClient") {

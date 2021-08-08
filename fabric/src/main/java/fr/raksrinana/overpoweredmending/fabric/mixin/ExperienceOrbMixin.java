@@ -14,7 +14,7 @@ import java.util.Comparator;
 import java.util.stream.IntStream;
 
 @Mixin(ExperienceOrb.class)
-public class ExperienceOrbEntityMixin{
+public class ExperienceOrbMixin{
 	private static final int DURABILITY_PER_XP = 2;
 	
 	@Inject(method = "playerTouch", at = @At(value = "HEAD"), cancellable = true)
