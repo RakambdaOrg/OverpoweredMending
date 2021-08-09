@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 ### Changed
+## [1.17.1-2.2.5] - 2021-08-09
+### Changed
 - Fabric: fixed crash at startup (#40)
 
 ## [1.17.1-2.2.4] - 2021-07-31
