@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 ### Changed
+- Fabric: fixed crash at startup (#40)
+
 ## [1.17.1-2.2.4] - 2021-07-31
 ### Changed
 - Port to 1.17.1

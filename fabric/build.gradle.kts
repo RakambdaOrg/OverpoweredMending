@@ -4,7 +4,8 @@ plugins {
 
 dependencies {
     minecraft(libs.minecraft)
-    mappings(minecraft.officialMojangMappings())
+//    mappings(loom.officialMojangMappings())
+    mappings("net.fabricmc:yarn:1.17.1+build.35:v2")
     modImplementation(libs.bundles.fabric)
     implementation(project(":common"))
 
