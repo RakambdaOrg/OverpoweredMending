@@ -48,13 +48,9 @@ allprojects {
             url = 'https://minecraft.curseforge.com/api/maven'
         }
         maven {
-            name "ModMenu Github"
-            url = "https://raw.githubusercontent.com/TerraformersMC/Archive/main/releases/"
+            name = "ModMenu"
+            url = "https://maven.terraformersmc.com/releases/"
         }
-//        maven {
-//            name = "ModMenu"
-//            url = "https://maven.terraformersmc.com/releases/"
-//        }
     }
 }
 
@@ -62,7 +58,7 @@ group = "fr.raksrinana"
 archivesBaseName = "${project.modName}-${project.minecraft_version}"
 
 task buildJar(type: Jar, group: "modding") {
-    dependsOn ":common:build", ":fabric:build", ":forge:build"
+    dependsOn assemble, ":common:build", ":fabric:build", ":forge:build"
     finalizedBy ":forge:signJar"
 
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
