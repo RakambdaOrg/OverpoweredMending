@@ -1,7 +1,7 @@
 # Changelog
 
-## [Unreleased]
-### Changed
+For newer releases see the [releases section](https://github.com/RakSrinaNa/OverpoweredMending/releases).
+
 ## [1.17.1-2.2.5] - 2021-08-09
 ### Changed
 - Fabric: fixed crash at startup (#40)

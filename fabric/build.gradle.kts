@@ -1,11 +1,11 @@
 plugins {
-    id("fabric-loom")
+    alias(libs.plugins.loom)
 }
 
 dependencies {
     minecraft(libs.minecraft)
 //    mappings(loom.officialMojangMappings())
-    mappings("net.fabricmc:yarn:1.17.1+build.35:v2")
+    mappings("net.fabricmc:yarn:1.18+build.1:v2")
     modImplementation(libs.bundles.fabric)
     implementation(project(":common"))
 
@@ -28,7 +28,7 @@ tasks {
     compileJava {
         options.encoding = "UTF-8"
         options.isDeprecation = true
-        options.release.set(16)
+        options.release.set(17)
     }
 }
 
