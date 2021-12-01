@@ -1,23 +1,22 @@
 modLoader="javafml"
 loaderVersion="[37,)"
 issueTrackerURL="https://github.com/${repoUser}/${repoName}/issues"
-displayURL="https://www.curseforge.com/minecraft/mc-mods/overpowered-mending"
-logoFile="logo.png"
-# credits=""
-authors="RakSrinaNa"
-license = "GPL-3.0"
+license = "LGPL-3.0"
 
 [[mods]] #mandatory
 modId="${modId}"
 version="${version}"
 displayName="${modName}"
 updateJSONURL="https://raw.githubusercontent.com/${repoUser}/${repoName}/${minecraft_version}-forge/update.json"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/overpowered-mending"
+logoFile="logo.png"
+authors="RakSrinaNa"
 description='''Changes Mending behaviour to repair what is in your inventory and need it the most. No need to have it equipped anymore.'''
 
 [[dependencies.overpoweredmending]]
 modId="forge"
 mandatory=true
-versionRange="[37.0.0,)"
+versionRange="[38,)"
 ordering="NONE"
 side="BOTH"
 [[dependencies.overpoweredmending]]
