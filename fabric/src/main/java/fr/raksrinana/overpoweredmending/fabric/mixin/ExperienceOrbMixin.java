@@ -1,5 +1,6 @@
 package fr.raksrinana.overpoweredmending.fabric.mixin;
 
+import lombok.extern.slf4j.Slf4j;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
@@ -13,6 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.Comparator;
 import java.util.stream.IntStream;
 
+@Slf4j
 @Mixin(ExperienceOrbEntity.class)
 public class ExperienceOrbMixin{
 	private static final int DURABILITY_PER_XP = 2;
@@ -28,6 +30,11 @@ public class ExperienceOrbMixin{
 				
 				var item = getDamagedEnchantedItem(Enchantments.MENDING, player);
 				var xpAmount = orb.getExperienceAmount();
+				log.info("Selected for mending: {} (damageable: {}, damaged: {}, damage: {})",
+						item.getItem(),
+						item.isDamageable(),
+						item.isDamaged(),
+						item.getDamage());
 				
 				while(!item.isEmpty() && xpAmount > 0){
 					var realRepair = Math.min(xpAmount * DURABILITY_PER_XP, item.getDamage());
@@ -46,13 +53,19 @@ public class ExperienceOrbMixin{
 	
 	private static ItemStack getDamagedEnchantedItem(Enchantment ench, PlayerEntity player){
 		var playerInventory = player.getInventory();
-		return IntStream.range(0, playerInventory.size())
+		var potential = IntStream.range(0, playerInventory.size())
 				.mapToObj(playerInventory::getStack)
 				.filter(is -> !is.isEmpty())
 				.filter(ItemStack::isDamageable)
 				.filter(ItemStack::isDamaged)
 				.filter(is -> EnchantmentHelper.getLevel(ench, is) > 0)
-				.max(Comparator.comparing(ItemStack::getDamage))
+				.toList();
+		potential.forEach(is -> log.info("Potential item found for mending: {} (damageable: {}, damaged: {}, damage: {})",
+				is.getItem(),
+				is.isDamageable(),
+				is.isDamaged(),
+				is.getDamage()));
+		return potential.stream().max(Comparator.comparing(ItemStack::getDamage))
 				.orElse(ItemStack.EMPTY);
 	}
 }
