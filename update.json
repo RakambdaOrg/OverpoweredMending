@@ -15,8 +15,8 @@
         "1.17.1-recommended": "2.2.5",
         "1.18-latest": "2.2.8",
         "1.18-recommended": "2.2.8",
-        "1.18.1-latest": "2.3.0",
-        "1.18.1-recommended": "2.3.0"
+        "1.18.1-latest": "2.3.1",
+        "1.18.1-recommended": "2.3.1"
     },
     "1.17": {
         "2.2.3": "https://github.com/RakSrinaNa/OverpoweredMending/blob/1.17/CHANGELOG.md"
@@ -30,6 +30,7 @@
         "2.2.8": "https://github.com/RakSrinaNa/OverpoweredMending/releases/2.2.8"
     },
     "1.18.1": {
-        "2.3.0": "https://github.com/RakSrinaNa/OverpoweredMending/releases/2.3.0"
+        "2.3.0": "https://github.com/RakSrinaNa/OverpoweredMending/releases/2.3.0",
+        "2.3.1": "https://github.com/RakSrinaNa/OverpoweredMending/releases/2.3.1"
     }
 }
