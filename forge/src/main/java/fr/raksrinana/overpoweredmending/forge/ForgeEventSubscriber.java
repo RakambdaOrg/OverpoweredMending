@@ -19,7 +19,7 @@ import java.util.stream.IntStream;
 public final class ForgeEventSubscriber{
 	private static final int DURABILITY_PER_XP = 2;
 	
-	@SubscribeEvent(priority = EventPriority.LOWEST)
+	@SubscribeEvent(priority = EventPriority.NORMAL)
 	public static void onPlayerPickupXpEvent(PlayerXpEvent.PickupXp e){
 		e.setCanceled(true);
 		PlayerEntity player = e.getPlayer();
