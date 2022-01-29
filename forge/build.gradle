@@ -1,4 +1,4 @@
-import net.minecraftforge.gradle.common.task.SignJar
+//import net.minecraftforge.gradle.common.task.SignJar
 
 buildscript {
     repositories {
@@ -54,13 +54,13 @@ processResources {
     }
 }
 
-jar.finalizedBy("reobfJar")
-
-task signJar(type: SignJar, dependsOn: rootProject.buildJar, group: "modding") {
-    keyStore = project.findProperty("forgeKeyStore")
-    alias = project.findProperty("forgeKeyStoreAlias")
-    storePass = project.findProperty("forgeKeyStorePass")
-    keyPass = project.findProperty("forgeKeyStoreKeyPass")
-    inputFile = rootProject.jar.getArchiveFile()
-    outputFile = rootProject.jar.getArchiveFile()
-}
+//jar.finalizedBy("reobfJar")
+//
+//task signJar(type: SignJar, dependsOn: rootProject.buildJar, group: "modding") {
+//    keyStore = project.findProperty("forgeKeyStore")
+//    alias = project.findProperty("forgeKeyStoreAlias")
+//    storePass = project.findProperty("forgeKeyStorePass")
+//    keyPass = project.findProperty("forgeKeyStoreKeyPass")
+//    inputFile = rootProject.jar.getArchiveFile()
+//    outputFile = rootProject.jar.getArchiveFile()
+//}
