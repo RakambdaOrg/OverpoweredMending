@@ -8,10 +8,10 @@ modId="${modId}"
 version="${version}"
 displayName="${modName}"
 updateJSONURL="https://raw.githubusercontent.com/${repoUser}/${repoName}/${minecraft_version}-forge/update.json"
+description='''Changes Mending behaviour to repair what is in your inventory and need it the most. No need to have it equipped anymore.'''
 displayURL="https://www.curseforge.com/minecraft/mc-mods/overpowered-mending"
 logoFile="logo.png"
 authors="RakSrinaNa"
-description='''Changes Mending behaviour to repair what is in your inventory and need it the most. No need to have it equipped anymore.'''
 
 [[dependencies.overpoweredmending]]
 modId="forge"
