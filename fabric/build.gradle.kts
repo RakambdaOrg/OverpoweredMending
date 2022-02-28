@@ -6,7 +6,9 @@ dependencies {
     minecraft(libs.minecraft)
 //    mappings(loom.officialMojangMappings())
     mappings("net.fabricmc:yarn:1.18.1+build.2:v2")
+
     modImplementation(libs.bundles.fabric)
+
     implementation(project(":common"))
 
     modImplementation(libs.modmenu) {
@@ -49,7 +51,7 @@ loom {
         create("overpoweredMendingServer") {
             server()
 
-            property("fabric.log.level", "debug")
+            property("fabric.log.level", "info")
             vmArg("-XX:+ShowCodeDetailsInExceptionMessages")
         }
     }

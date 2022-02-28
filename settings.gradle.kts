@@ -1,4 +1,4 @@
-enableFeaturePreview("VERSION_CATALOGS")
+rootProject.name = "OverpoweredMending"
 
 pluginManagement {
     repositories {
@@ -6,11 +6,28 @@ pluginManagement {
             name = "Fabric"
             url = uri("https://maven.fabricmc.net/")
         }
+        maven {
+            name = "MinecraftForge"
+            url = uri("https://maven.minecraftforge.net")
+        }
         gradlePluginPortal()
+    }
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.id == "net.minecraftforge.gradle") {
+                useModule("${requested.id}:ForgeGradle:${requested.version}")
+            }
+        }
     }
 }
 
-rootProject.name = "OverpoweredMending"
+val includeFabric: String by settings
+val includeForge: String by settings
+
 include("common")
-include("fabric")
-include("forge")
+if (includeFabric.toBoolean()) {
+    include("fabric")
+}
+if (includeForge.toBoolean()) {
+    include("forge")
+}
