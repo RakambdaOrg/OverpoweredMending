@@ -146,7 +146,7 @@ curseforge {
 }
 
 task publishModrinth(type: TaskModrinthUpload, group: "upload") {
-    dependsOn build
+    dependsOn buildJar
     def relType = VersionType.RELEASE
     if (version.contains("b")) {
         relType = VersionType.BETA
