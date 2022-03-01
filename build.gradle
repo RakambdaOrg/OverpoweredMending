@@ -102,6 +102,10 @@ task buildJar(type: Jar, group: "modding") {
 assemble.finalizedBy("buildJar")
 
 curseforge {
+    afterEvaluate {
+        tasks["curseforge${project.curseforge_project_id}"].dependsOn("buildJar")
+    }
+
     def relType = "release"
     if (version.contains("b")) {
         relType = "beta"
