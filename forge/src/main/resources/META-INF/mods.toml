@@ -7,7 +7,7 @@ license = "LGPL-3.0"
 modId="${modId}"
 version="${version}"
 displayName="${modName}"
-updateJSONURL="https://raw.githubusercontent.com/${repoUser}/${repoName}/${minecraft_version}-forge/update.json"
+updateJSONURL="https://raw.githubusercontent.com/${repoUser}/${repoName}/${minecraftVersion}-forge/update.json"
 description='''Changes Mending behaviour to repair what is in your inventory and need it the most. No need to have it equipped anymore.'''
 displayURL="https://www.curseforge.com/minecraft/mc-mods/overpowered-mending"
 logoFile="logo.png"
@@ -22,6 +22,6 @@ side="BOTH"
 [[dependencies.overpoweredmending]]
 modId="minecraft"
 mandatory=true
-versionRange="[${minecraft_version}]"
+versionRange="[${minecraftVersion}]"
 ordering="NONE"
 side="BOTH"
