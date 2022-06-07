@@ -5,7 +5,7 @@ plugins {
 dependencies {
     minecraft(libs.minecraft)
 //    mappings(loom.officialMojangMappings())
-    mappings("net.fabricmc:yarn:1.18.1+build.2:v2")
+    mappings("net.fabricmc:yarn:1.19+build.1:v2")
 
     modImplementation(libs.bundles.fabric)
 
@@ -36,6 +36,15 @@ tasks {
 
 loom {
     val modId: String by project
+
+    splitEnvironmentSourceSets()
+
+    mods {
+        create(modId) {
+            sourceSet(sourceSets["main"])
+            sourceSet(sourceSets["client"])
+        }
+    }
 
     mixin {
         getDefaultRefmapName().set("fabric.${modId}.refmap.json")

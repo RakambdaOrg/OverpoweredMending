@@ -22,7 +22,7 @@
     "client": [],
     "server": [],
     "modmenu": [
-      "fr.raksrinana.overpoweredmending.fabric.ModMenuImpl"
+      "fr.raksrinana.overpoweredmending.fabric.client.ModMenuImpl"
     ]
   },
   "mixins": [

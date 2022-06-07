@@ -1,4 +1,4 @@
-package fr.raksrinana.overpoweredmending.fabric;
+package fr.raksrinana.overpoweredmending.fabric.client;
 
 import com.terraformersmc.modmenu.api.ModMenuApi;
 
