@@ -19,7 +19,7 @@ public final class ForgeEventSubscriber{
 	@SubscribeEvent(priority = EventPriority.LOWEST)
 	public static void onPlayerPickupXpEvent(PlayerXpEvent.PickupXp e){
 		e.setCanceled(true);
-		var player = e.getPlayer();
+		var player = e.getEntity();
 		var xp = e.getOrb();
 		var item = getDamagedEnchantedItem(Enchantments.MENDING, player);
 		// See EntityXPOrb#onCollideWithPlayer for details.

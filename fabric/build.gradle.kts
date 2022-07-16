@@ -51,14 +51,17 @@ loom {
     }
 
     runs {
-        create("overpoweredMendingClient") {
+        create("OMFabricClient") {
             client()
+            runDir("run/client")
 
-            property("fabric.log.level", "debug")
+            property("fabric.log.level", "info")
             vmArg("-XX:+ShowCodeDetailsInExceptionMessages")
+            programArgs("--uuid=123", "--username=Dev")
         }
-        create("overpoweredMendingServer") {
+        create("OMFabricServer") {
             server()
+            runDir("run/server")
 
             property("fabric.log.level", "info")
             vmArg("-XX:+ShowCodeDetailsInExceptionMessages")
