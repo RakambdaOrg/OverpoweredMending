@@ -36,5 +36,12 @@
   },
   "suggests": {
     "modmenu": "*"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.gg/uXWsRftdy7"
+      }
+    }
   }
 }
