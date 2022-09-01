@@ -2,7 +2,7 @@ package fr.raksrinana.overpoweredmending.common.wrapper;
 
 import org.jetbrains.annotations.NotNull;
 
-public interface IXpOrb{
+public interface IXpOrb extends IWrapper{
 	int getExperienceAmount();
 	
 	void setExperienceAmount(int amount);
