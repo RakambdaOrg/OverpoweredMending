@@ -35,7 +35,7 @@ public class PlayerWrapper implements IPlayer{
 	
 	@Override
 	public void sendPickup(@NotNull IXpOrb xp, int count){
-		raw.take((Entity) xp, count);
+		raw.take((Entity) xp.getRaw(), count);
 	}
 	
 	@Override
