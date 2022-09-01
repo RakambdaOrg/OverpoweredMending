@@ -13,6 +13,7 @@ forgeMappingsVersion = "1.19.2"
 
 # Mod dependencies
 modmenu-version = "4.0.6"
+curiosVersion = "1.19.2-5.1.1.0"
 
 fabric-loom-version = "0.13.11"
 forge-plugin-version = "5.1.55"

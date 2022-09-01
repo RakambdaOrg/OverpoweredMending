@@ -45,6 +45,10 @@ allprojects {
             name = "ModMenu"
             url = "https://maven.terraformersmc.com/releases/"
         }
+        maven {
+            name = "Curios"
+            url = "https://maven.theillusivec4.top/"
+        }
     }
 }
 
