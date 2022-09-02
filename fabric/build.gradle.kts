@@ -13,6 +13,9 @@ dependencies {
     modImplementation(libs.modmenu) {
         exclude(group = "net.fabricmc.fabric-api")
     }
+    modImplementation(libs.trinkets) {
+        exclude(group = "net.fabricmc.fabric-api")
+    }
 }
 
 tasks {
