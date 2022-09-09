@@ -42,8 +42,16 @@ allprojects {
             url = 'https://minecraft.curseforge.com/api/maven'
         }
         maven {
-            name = "ModMenu"
+            name = "TerraformersMC" // ModMenu & Trinkets
             url = "https://maven.terraformersmc.com/releases/"
+        }
+        maven {
+            name = "Curios"
+            url = "https://maven.theillusivec4.top/"
+        }
+        maven {
+            name = "Ladysnake Libs"
+            url = "https://ladysnake.jfrog.io/artifactory/mods"
         }
     }
 }

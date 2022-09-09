@@ -77,6 +77,8 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 dependencies {
     minecraft(libs.forge)
     library(project(":common"))
+
+    implementation(fg.deobf("top.theillusivec4.curios:curios-forge:${libs.versions.curiosVersion.get()}:api"))
 }
 
 ext {
