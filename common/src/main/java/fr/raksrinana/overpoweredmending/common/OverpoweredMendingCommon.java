@@ -24,10 +24,6 @@ public abstract class OverpoweredMendingCommon{
 	}
 	
 	public boolean onXpPickedUp(@NotNull IPlayer player, @NotNull IXpOrb xpOrb){
-		if(!xpOrb.getLevel().isServer()){
-			return false;
-		}
-		
 		var mending = getMendingEnchantment();
 		var item = getDamagedEnchantedItem(mending, player);
 		
@@ -36,7 +32,7 @@ public abstract class OverpoweredMendingCommon{
 		
 		var xpAmount = xpOrb.getExperienceAmount();
 		
-		while(!item.isEmpty() && xpOrb.getExperienceAmount() > 0){
+		while(!item.isEmpty() && xpAmount > 0){
 			var realRepair = Math.min(xpAmount * DURABILITY_PER_XP, item.getDamageValue());
 			xpAmount -= realRepair / DURABILITY_PER_XP;
 			xpOrb.setExperienceAmount(xpAmount);
