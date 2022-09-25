@@ -1,6 +1,6 @@
 package fr.raksrinana.overpoweredmending.common.wrapper;
 
-public interface IItemStack{
+public interface IItemStack extends IWrapper{
 	int getEnchantmentLevel(IEnchantment enchantment);
 	
 	int getDamageValue();

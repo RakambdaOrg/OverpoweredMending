@@ -35,7 +35,7 @@ public class OverpoweredMending{
 						.newInstance());
 			}
 			catch(ClassNotFoundException | IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException e){
-				log.error("Failed to hook into ClothConfig", e);
+				log.error("Failed to hook into Curios", e);
 			}
 		}
 		return Optional.empty();

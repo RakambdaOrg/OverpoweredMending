@@ -31,7 +31,7 @@ public class OverpoweredMending implements ModInitializer{
 						.newInstance());
 			}
 			catch(ClassNotFoundException | IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException e){
-				log.error("Failed to hook into ClothConfig", e);
+				log.error("Failed to hook into Trinkets", e);
 			}
 		}
 		return Optional.empty();
