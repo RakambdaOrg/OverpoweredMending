@@ -46,9 +46,22 @@ minecraft {
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
+configurations {
+    library
+    implementation.extendsFrom library
+}
+
+minecraft.runs.all {
+    lazyToken('minecraft_classpath') {
+        configurations.library.copyRecursive().resolve().collect { it.absolutePath }.join(File.pathSeparator)
+    }
+}
+
 dependencies {
     minecraft(libs.forge)
-    implementation project(":common")
+    library(project(":common"))
+
+    implementation(fg.deobf("top.theillusivec4.curios:curios-forge:${libs.versions.curiosVersion.get()}:api"))
 }
 
 ext {
