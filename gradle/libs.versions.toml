@@ -16,7 +16,7 @@ modmenu-version = "4.0.6"
 curiosVersion = "1.19.2-5.1.1.0"
 trinkets-version = "3.4.0"
 
-fabric-loom-version = "1.0.9"
+fabric-loom-version = "1.0.10"
 forge-plugin-version = "5.1.56"
 curse-version = "1.4.0"
 modrinth-version = "2.4.4"
