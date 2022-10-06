@@ -29,7 +29,7 @@ public class OverpoweredMending{
 	private Optional<IInventoryProvider> initCurios(){
 		if(ModList.get().isLoaded("curios")){
 			try{
-				return Optional.of(Class.forName("fr.raksrinana.overpoweredmending.forge.hooks.CuriosHook")
+				return Optional.of(Class.forName("fr.raksrinana.overpoweredmending.forge.inventory.CuriosInventoryProvider")
 						.asSubclass(CuriosInventoryProvider.class)
 						.getConstructor()
 						.newInstance());
