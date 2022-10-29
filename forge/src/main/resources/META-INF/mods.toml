@@ -1,26 +1,26 @@
-modLoader="javafml"
-loaderVersion="[43,)"
-issueTrackerURL="https://github.com/${repoUser}/${repoName}/issues"
+modLoader = "javafml"
+loaderVersion = "[43,)"
+issueTrackerURL = "https://github.com/${repoUser}/${repoName}/issues"
 license = "LGPL-3.0"
 
 [[mods]] #mandatory
-modId="${modId}"
-version="${version}"
-displayName="${modName}"
-description='''Changes Mending behaviour to repair what is in your inventory and need it the most. No need to have it equipped anymore.'''
-displayURL="https://www.curseforge.com/minecraft/mc-mods/overpowered-mending"
-logoFile="logo.png"
-authors="RakSrinaNa"
+modId = "${modId}"
+version = "${version}"
+displayName = "${modName}"
+description = '''Changes Mending behaviour to repair what is in your inventory and need it the most. No need to have it equipped anymore.'''
+displayURL = "https://www.curseforge.com/minecraft/mc-mods/overpowered-mending"
+logoFile = "logo.png"
+authors = "Rakambda"
 
 [[dependencies.overpoweredmending]]
-modId="forge"
-mandatory=true
-versionRange="[43,)"
-ordering="NONE"
-side="BOTH"
+modId = "forge"
+mandatory = true
+versionRange = "[43,)"
+ordering = "NONE"
+side = "BOTH"
 [[dependencies.overpoweredmending]]
-modId="minecraft"
-mandatory=true
-versionRange="[${minecraftVersion}]"
-ordering="NONE"
-side="BOTH"
+modId = "minecraft"
+mandatory = true
+versionRange = "[${minecraftVersion}]"
+ordering = "NONE"
+side = "BOTH"

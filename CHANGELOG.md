@@ -1,6 +1,6 @@
 # Changelog
 
-For newer releases see the [releases section](https://github.com/RakSrinaNa/OverpoweredMending/releases).
+For newer releases see the [releases section](https://github.com/Rakambda/OverpoweredMending/releases).
 
 ## [1.17.1-2.2.5] - 2021-08-09
 ### Changed
