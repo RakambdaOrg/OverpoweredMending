@@ -5,7 +5,7 @@
   "name": "${modName}",
   "description": "Changes Mending behaviour to repair what is in your inventory and need it the most. No need to have it equipped anymore.",
   "authors": [
-    "RakSrinaNa"
+    "Rakambda"
   ],
   "contact": {
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/overpowered-mending",
@@ -17,12 +17,12 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "fr.raksrinana.overpoweredmending.fabric.OverpoweredMending"
+      "fr.rakambda.overpoweredmending.fabric.OverpoweredMending"
     ],
     "client": [],
     "server": [],
     "modmenu": [
-      "fr.raksrinana.overpoweredmending.fabric.client.ModMenuImpl"
+      "fr.rakambda.overpoweredmending.fabric.client.ModMenuImpl"
     ]
   },
   "mixins": [
