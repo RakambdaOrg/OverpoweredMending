@@ -10,12 +10,9 @@ dependencies {
 
     implementation(project(":common"))
 
-    modImplementation(libs.modmenu) {
-        exclude(group = "net.fabricmc.fabric-api")
-    }
-    modImplementation(libs.trinkets) {
-        exclude(group = "net.fabricmc.fabric-api")
-    }
+    modImplementation(libs.modmenu)
+    modImplementation(libs.trinkets)
+    modImplementation(libs.cardinalComponents)
 }
 
 tasks {
