@@ -15,7 +15,7 @@ forgeMappingsVersion = "1.19.3"
 modmenu-version = "6.2.2"
 curiosVersion = "1.19.3-5.1.4.0"
 trinkets-version = "3.6.0"
-cardinal-components-version = "5.1.0"
+cardinal-components-version = "5.2.0"
 
 fabric-loom-version = "1.1.10"
 forge-plugin-version = "5.1.70"
