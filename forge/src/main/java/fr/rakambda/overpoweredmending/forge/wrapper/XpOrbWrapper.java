@@ -33,6 +33,6 @@ public class XpOrbWrapper implements IXpOrb{
 	@Override
 	@NotNull
 	public ILevel getLevel(){
-		return new LevelWrapper(raw.getLevel());
+		return new LevelWrapper(raw.getCommandSenderWorld());
 	}
 }

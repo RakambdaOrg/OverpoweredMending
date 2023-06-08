@@ -13,14 +13,14 @@ forgeMappingsVersion = "1.20"
 
 # Mod dependencies
 modmenu-version = "7.0.0"
-curiosVersion = "1.19.3-5.1.4.0"
-trinkets-version = "3.6.0"
-cardinal-components-version = "5.1.0"
+curiosVersion = "1.19.4-5.1.5.3"
+trinkets-version = "3.7.0"
+cardinal-components-version = "5.2.0"
 
 fabric-loom-version = "1.2.7"
 forge-plugin-version = "6.0.6"
 curse-version = "1.4.0"
-modrinth-version = "2.7.5"
+modrinth-version = "2.8.0"
 names-version = "0.46.0"
 git-version-plugin-version = "3.0.0"
 
