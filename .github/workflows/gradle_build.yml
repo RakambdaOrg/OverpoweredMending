@@ -8,6 +8,7 @@ jobs:
     uses: Rakambda/rakambda-github-workflows/.github/workflows/gradle-minecraft-build.yml@main
     with:
       java-version: ${{ vars.JAVA_VERSION }}
+    secrets:
       keystore: ${{ secrets.KEYSTORE_FORGE_MODS }}
       keystore-passphrase: ${{ secrets.KEYSTORE_FORGE_MODS_PASSPHRASE }}
       key-alias: ${{ secrets.KEYSTORE_FORGE_MODS_ALIAS }}
