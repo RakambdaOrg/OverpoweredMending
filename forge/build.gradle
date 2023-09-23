@@ -6,6 +6,8 @@ plugins {
 
 minecraft {
     mappings channel: "official", version: "${libs.versions.forgeMappingsVersion.get()}"
+    copyIdeResources = true
+
     runs {
         client {
             taskName "runOMForgeClient"
