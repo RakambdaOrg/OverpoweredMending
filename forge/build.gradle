@@ -1,66 +1,38 @@
-import net.minecraftforge.gradle.common.tasks.SignJar
-
 plugins {
     alias(libs.plugins.forge)
 }
 
 minecraft {
-    mappings channel: "official", version: "${libs.versions.forgeMappingsVersion.get()}"
+    mappings channel: "official", version: "${libs.versions.minecraftVersion.get()}"
     copyIdeResources = true
 
     runs {
+        configureEach {
+            property "forge.logging.markers", "REGISTRIES"
+            property "forge.logging.console.level", "error"
+        }
+
         client {
             taskName "runOMForgeClient"
             workingDirectory project.file("./run/client")
-            property "forge.logging.markers", "REGISTRIES"
-            property "forge.logging.console.level", "debug"
-            property "forge.enabledGameTestNamespaces", "overpoweredmending"
-            mods {
-                overpoweredmending {
-                    source sourceSets.main
-                }
-            }
         }
 
         server {
             taskName "runOMForgeServer"
             workingDirectory project.file("./run/server")
-            property "forge.logging.markers", "REGISTRIES"
-            property "forge.logging.console.level", "debug"
-            property "forge.enabledGameTestNamespaces", "overpoweredmending"
-            mods {
-                overpoweredmending {
-                    source sourceSets.main
-                }
-            }
+            args "--nogui"
         }
 
         gameTestServer {
             taskName "runOMForgeTestServer"
             workingDirectory project.file("./run/test")
-            property "forge.logging.markers", "REGISTRIES"
-            property "forge.logging.console.level", "debug"
             property "forge.enabledGameTestNamespaces", "overpoweredmending"
-
-            mods {
-                overpoweredmending {
-                    source sourceSets.main
-                }
-            }
         }
 
         data {
             taskName "runOMForgeData"
             workingDirectory project.file("./run/data")
-            property "forge.logging.markers", "REGISTRIES"
-            property "forge.logging.console.level", "debug"
             args '--mod', 'overpoweredmending', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
-
-            mods {
-                overpoweredmending {
-                    source sourceSets.main
-                }
-            }
         }
     }
 }
@@ -94,26 +66,9 @@ processResources {
 
     from "src/main/resources", "../common/src/main/resources"
 
-    filesMatching("META-INF/mods.toml") {
+    filesMatching(["META-INF/mods.toml", "pack.mcmeta"]) {
         expand project.properties
     }
 }
 
 jar.finalizedBy("reobfJar")
-
-task signJar(type: SignJar, dependsOn: rootProject.buildJar, group: "modding") {
-    onlyIf {
-        project.hasProperty("forgeKeyStore")
-                && project.hasProperty("forgeKeyStoreAlias")
-                && project.hasProperty("forgeKeyStorePass")
-                && project.hasProperty("forgeKeyStoreKeyPass")
-                && rootProject.file(project.findProperty("forgeKeyStore")).exists()
-    }
-
-    keyStore = project.findProperty("forgeKeyStore") == null ? null : rootProject.file(project.findProperty("forgeKeyStore")).absolutePath
-    alias = project.findProperty("forgeKeyStoreAlias")
-    storePass = project.findProperty("forgeKeyStorePass")
-    keyPass = project.findProperty("forgeKeyStoreKeyPass")
-    inputFile = rootProject.jar.getArchiveFile()
-    outputFile = rootProject.jar.getArchiveFile()
-}
