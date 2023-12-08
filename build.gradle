@@ -23,7 +23,7 @@ allprojects {
 
     java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
-    tasks.withType(JavaCompile) {
+    tasks.withType(JavaCompile).configureEach {
         options.encoding = "UTF-8"
         options.compilerArgs = ["-Xlint:deprecation"]
     }
@@ -58,7 +58,7 @@ allprojects {
         }
     }
 
-    if (version == null || version.equals("unspecified")) {
+    if (version == null || version == "unspecified") {
         try {
             def details = versionDetails()
             if (details.commitDistance > 0) {
@@ -86,7 +86,8 @@ if (version.contains("a") || version.contains("dev")) {
     isAlpha = true
 }
 
-task buildJar(type: Jar, group: "modding") {
+tasks.register('buildJar', Jar) {
+    group("Modding")
     dependsOn(assemble)
     dependsOn(":common:build")
     if (project.includeFabric.toBoolean()) {
@@ -94,10 +95,6 @@ task buildJar(type: Jar, group: "modding") {
     }
     if (project.includeForge.toBoolean()) {
         dependsOn(":forge:build")
-    }
-
-    if (project.includeForge.toBoolean()) {
-        finalizedBy(":forge:signJar")
     }
 
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
@@ -178,7 +175,7 @@ curseforge {
     }
 
     afterEvaluate {
-        tasks["curseforge${project.curseforge_project_id}"].dependsOn("buildJar")
+        tasks.named("curseforge${project.curseforge_project_id}").get().dependsOn("buildJar")
     }
 }
 
@@ -208,7 +205,7 @@ modrinth {
     }
 
     afterEvaluate {
-        tasks["modrinth"].dependsOn("buildJar")
+        tasks.named("modrinth").get().dependsOn("buildJar")
     }
 }
 

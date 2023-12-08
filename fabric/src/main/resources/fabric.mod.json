@@ -29,9 +29,9 @@
     "overpoweredmending.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.13.2",
+    "fabricloader": ">=0.15.0",
     "fabric-resource-loader-v0": "*",
-    "fabric-api": ">=0.20",
+    "fabric-api": ">=0.91",
     "java": ">=17"
   },
   "suggests": {
