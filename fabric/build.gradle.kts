@@ -13,8 +13,8 @@ dependencies {
     implementation(project(":common"))
 
     modImplementation(libs.modmenu)
-    modImplementation(libs.trinkets)
-    modImplementation(libs.cardinalComponents)
+//    modImplementation(libs.trinkets)
+//    modImplementation(libs.cardinalComponents)
 }
 
 tasks {
@@ -31,7 +31,7 @@ tasks {
     compileJava {
         options.encoding = "UTF-8"
         options.isDeprecation = true
-        options.release.set(17)
+        options.release.set(21)
     }
 }
 
@@ -45,10 +45,6 @@ loom {
             sourceSet(sourceSets["main"])
             sourceSet(sourceSets["client"])
         }
-    }
-
-    mixin {
-        getDefaultRefmapName().set("fabric.${modId}.refmap.json")
     }
 
     runs {
