@@ -13,8 +13,8 @@ dependencies {
     implementation(project(":common"))
 
     modImplementation(libs.modmenu)
-    modImplementation(libs.trinkets)
-    modImplementation(libs.cardinalComponents)
+//    modImplementation(libs.trinkets)
+//    modImplementation(libs.cardinalComponents)
 }
 
 tasks {
