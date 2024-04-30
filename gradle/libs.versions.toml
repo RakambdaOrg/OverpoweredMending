@@ -14,7 +14,7 @@ forge-version = "1.20.4-49.0.3"
 modmenu-version = "10.0.0-beta.1"
 curiosVersion = "6.1.0+1.20.2"
 trinkets-version = "3.8.1"
-cardinal-components-version = "6.0.0-beta.1"
+cardinal-components-version = "6.0.0-beta.3"
 
 fabric-loom-version = "1.6+"
 forge-plugin-version = "[6.0.16,6.2)"
