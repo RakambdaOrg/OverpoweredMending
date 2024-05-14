@@ -1,0 +1,26 @@
+modLoader = "javafml"
+loaderVersion = "[2,)"
+issueTrackerURL = "https://github.com/${repoUser}/${repoName}/issues"
+license = "LGPL-3.0"
+
+[[mods]] #mandatory
+modId = "${modId}"
+version = "${version}"
+displayName = "${modName}"
+description = '''Changes Mending behaviour to repair what is in your inventory and need it the most. No need to have it equipped anymore.'''
+displayURL = "https://www.curseforge.com/minecraft/mc-mods/overpowered-mending"
+logoFile = "logo.png"
+authors = "Rakambda"
+
+[[dependencies.overpoweredmending]]
+modId = "neoforge"
+type = "required"
+versionRange = "[20.6,)"
+ordering = "NONE"
+side = "BOTH"
+[[dependencies.overpoweredmending]]
+modId = "minecraft"
+type = "required"
+versionRange = "[${minecraftVersion}]"
+ordering = "NONE"
+side = "BOTH"

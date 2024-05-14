@@ -1,9 +1,9 @@
-package fr.rakambda.overpoweredmending.forge.inventory;
+package fr.rakambda.overpoweredmending.neoforge.inventory;
 
 import fr.rakambda.overpoweredmending.common.inventory.IInventoryProvider;
 import fr.rakambda.overpoweredmending.common.wrapper.IItemStack;
 import fr.rakambda.overpoweredmending.common.wrapper.IPlayer;
-import fr.rakambda.overpoweredmending.forge.wrapper.ItemStackWrapper;
+import fr.rakambda.overpoweredmending.neoforge.wrapper.ItemStackWrapper;
 import net.minecraft.world.entity.player.Player;
 import org.jetbrains.annotations.NotNull;
 import top.theillusivec4.curios.api.CuriosApi;

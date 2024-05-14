@@ -1,0 +1,64 @@
+plugins {
+    id("java-library")
+    alias(libs.plugins.neoforge)
+}
+
+runs {
+    configureEach {
+        systemProperty "forge.logging.markers", "REGISTRIES"
+        systemProperty "forge.logging.console.level", "error"
+    }
+
+    client {
+//        name "runOMForgeClient"
+        workingDirectory.set(project.file("./run/client"))
+    }
+
+    server {
+//        taskName "runOMForgeServer"
+        workingDirectory.set(project.file("./run/server"))
+        programArgument "--nogui"
+    }
+
+    gameTestServer {
+//        taskName "runOMForgeTestServer"
+        workingDirectory.set(project.file("./run/test"))
+        systemProperty "forge.enabledGameTestNamespaces", "overpoweredmending"
+    }
+
+    data {
+//        taskName "runOMForgeData"
+        workingDirectory.set(project.file("./run/data"))
+        programArguments.addAll '--mod', 'overpoweredmending', '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
+    }
+}
+
+minecraft {
+    mappings {
+        channel = official()
+        version.put "minecraft", libs.versions.minecraftVersion.get()
+    }
+}
+
+sourceSets.main.resources { srcDir 'src/generated/resources' }
+
+dependencies {
+    implementation(libs.neoforge)
+    implementation(project(":common"))
+
+    implementation(libs.curiosneoforge)
+}
+
+ext {
+    minecraftVersion = libs.versions.minecraftVersion.get()
+}
+
+processResources {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+
+    from "src/main/resources", "../common/src/main/resources"
+
+    filesMatching(["META-INF/neoforge.mods.toml"]) {
+        expand project.properties
+    }
+}

@@ -96,6 +96,9 @@ tasks.register('buildJar', Jar) {
     if (project.includeForge.toBoolean()) {
         dependsOn(":forge:build")
     }
+    if (project.includeNeoForge.toBoolean()) {
+        dependsOn(":neoforge:build")
+    }
 
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     from {
@@ -109,6 +112,11 @@ tasks.register('buildJar', Jar) {
     if (project.includeForge.toBoolean()) {
         from {
             zipTree("forge/build/libs/forge-${project.version}.jar")
+        }
+    }
+    if (project.includeNeoForge.toBoolean()) {
+        from {
+            zipTree("neoforge/build/libs/neoforge-${project.version}.jar")
         }
     }
 
@@ -156,6 +164,9 @@ curseforge {
         if (project.includeForge.toBoolean()) {
             addGameVersion("Forge")
         }
+        if (project.includeNeoForge.toBoolean()) {
+            addGameVersion("NeoForge")
+        }
         changelog = getFTChangelog() ?: "No changelog provided"
         releaseType = relType
         mainArtifact(jar) {
@@ -191,6 +202,9 @@ modrinth {
     }
     if (project.includeForge.toBoolean()) {
         loaders.add("forge")
+    }
+    if (project.includeNeoForge.toBoolean()) {
+        loaders.add("neoforge")
     }
     versionType.set(relType)
     changelog.set(getFTChangelog() ?: "No changelog provided")
