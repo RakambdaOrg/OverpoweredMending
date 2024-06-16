@@ -1,7 +1,7 @@
 package fr.rakambda.overpoweredmending.common.wrapper;
 
 public interface IItemStack extends IWrapper{
-	int getEnchantmentLevel(IEnchantment enchantment);
+	boolean hasMendingEnchant();
 	
 	int getDamageValue();
 	

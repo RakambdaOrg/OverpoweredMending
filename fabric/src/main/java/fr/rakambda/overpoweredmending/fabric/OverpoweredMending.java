@@ -13,6 +13,8 @@ import java.util.Optional;
 
 @Log4j2
 public class OverpoweredMending implements ModInitializer{
+	public static final String MOD_ID = "overpoweredmending";
+	
 	@Getter
 	private static final OverpoweredMendingImpl mod = new OverpoweredMendingImpl();
 	

@@ -1,11 +1,10 @@
 package fr.rakambda.overpoweredmending.common;
 
+import fr.rakambda.overpoweredmending.common.inventory.IInventoryProvider;
 import fr.rakambda.overpoweredmending.common.inventory.PlayerInventoryProvider;
-import fr.rakambda.overpoweredmending.common.wrapper.IEnchantment;
 import fr.rakambda.overpoweredmending.common.wrapper.IItemStack;
 import fr.rakambda.overpoweredmending.common.wrapper.IPlayer;
 import fr.rakambda.overpoweredmending.common.wrapper.IXpOrb;
-import fr.rakambda.overpoweredmending.common.inventory.IInventoryProvider;
 import org.jetbrains.annotations.NotNull;
 import java.util.Collection;
 import java.util.Comparator;
@@ -24,8 +23,7 @@ public abstract class OverpoweredMendingCommon{
 	}
 	
 	public boolean onXpPickedUp(@NotNull IPlayer player, @NotNull IXpOrb xpOrb){
-		var mending = getMendingEnchantment();
-		var item = getDamagedEnchantedItem(mending, player);
+		var item = getDamagedEnchantedItem(player);
 		
 		player.setExperiencePickUpDelay(2);
 		player.sendPickup(xpOrb, 1);
@@ -37,7 +35,7 @@ public abstract class OverpoweredMendingCommon{
 			xpAmount -= realRepair / DURABILITY_PER_XP;
 			xpOrb.setExperienceAmount(xpAmount);
 			item.setDamageValue(item.getDamageValue() - realRepair);
-			item = getDamagedEnchantedItem(mending, player);
+			item = getDamagedEnchantedItem(player);
 		}
 		if(xpAmount > 0){
 			player.addExperience(xpAmount);
@@ -47,19 +45,16 @@ public abstract class OverpoweredMendingCommon{
 	}
 	
 	@NotNull
-	private IItemStack getDamagedEnchantedItem(@NotNull IEnchantment ench, @NotNull IPlayer player){
+	private IItemStack getDamagedEnchantedItem(@NotNull IPlayer player){
 		return inventoryProviders.stream()
 				.flatMap(provider -> provider.getInventoryContent(player))
 				.filter(is -> !is.isEmpty())
 				.filter(IItemStack::isDamageableItem)
 				.filter(IItemStack::isDamaged)
-				.filter(is -> is.getEnchantmentLevel(ench) > 0)
+				.filter(IItemStack::hasMendingEnchant)
 				.max(Comparator.comparingInt(IItemStack::getDamageValue))
 				.orElse(getEmptyItemStack());
 	}
-	
-	@NotNull
-	protected abstract IEnchantment getMendingEnchantment();
 	
 	@NotNull
 	protected abstract IItemStack getEmptyItemStack();
