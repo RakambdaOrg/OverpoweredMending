@@ -1,12 +1,15 @@
 package fr.rakambda.overpoweredmending.neoforge.wrapper;
 
-import fr.rakambda.overpoweredmending.common.wrapper.IEnchantment;
 import fr.rakambda.overpoweredmending.common.wrapper.IItemStack;
+import fr.rakambda.overpoweredmending.neoforge.OverpoweredMending;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import org.jetbrains.annotations.NotNull;
 
 @RequiredArgsConstructor
@@ -17,8 +20,8 @@ public class ItemStackWrapper implements IItemStack{
 	private final ItemStack raw;
 	
 	@Override
-	public int getEnchantmentLevel(IEnchantment enchantment){
-		return raw.getEnchantmentLevel((Enchantment) enchantment.getRaw());
+	public boolean hasMendingEnchant(){
+		return EnchantmentHelper.hasTag(raw, TagKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(OverpoweredMending.MOD_ID, "mending")));
 	}
 	
 	@Override
