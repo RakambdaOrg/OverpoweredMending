@@ -7,7 +7,7 @@ Instead of selecting one of the items you have equipped (armor, main hand, off h
 
 Incompatibilities :
 
-* [Clumps](https://www.curseforge.com/minecraft/mc-mods/clumps)
+* Some versions of [Clumps](https://www.curseforge.com/minecraft/mc-mods/clumps)
 * [CoFHCore](https://www.curseforge.com/minecraft/mc-mods/cofh-core)
 
 ---
