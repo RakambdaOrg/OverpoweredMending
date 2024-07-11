@@ -7,9 +7,9 @@ log4j2-version = "2.23.1"
 
 minecraftVersion = "1.21"
 fabric-loader-version = "0.15.11"
-fabric-api-version = "0.100.1+1.21"
-forge-version = "1.21-51.0.8"
-neoforge-version = "21.0.8-beta"
+fabric-api-version = "0.100.6+1.21"
+forge-version = "1.21-51.0.24"
+neoforge-version = "21.0.86-beta"
 
 # Mod dependencies
 modmenu-version = "11.0.1"
@@ -23,7 +23,7 @@ curse-version = "1.4.0"
 modrinth-version = "2.8.7"
 names-version = "0.51.0"
 git-version-plugin-version = "3.1.0"
-neoforge-plugin-version = "7.0.153"
+neoforge-plugin-version = "7.0.154"
 
 [libraries]
 lombok = { group = "org.projectlombok", name = "lombok", version.ref = "lombok-version" }
