@@ -15,7 +15,7 @@ neoforge-version = "21.0.86-beta"
 modmenu-version = "11.0.1"
 curiosVersion = "8.0.1+1.20.6"
 trinkets-version = "3.10.0"
-cardinal-components-version = "6.1.0"
+cardinal-components-version = "6.1.1"
 
 fabric-loom-version = "1.6+"
 forge-plugin-version = "[6.0.24,6.2)"
