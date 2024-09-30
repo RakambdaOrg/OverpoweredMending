@@ -3,7 +3,7 @@
 [versions]
 lombok-version = "1.18.34"
 jetbrains-annotations-version = "25.0.0"
-log4j2-version = "2.24.0"
+log4j2-version = "2.24.1"
 
 minecraftVersion = "1.21.1"
 fabric-loader-version = "0.16.2"
