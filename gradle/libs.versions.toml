@@ -12,7 +12,7 @@ forge-version = "1.21.1-52.0.4"
 neoforge-version = "21.1.22"
 
 # Mod dependencies
-modmenu-version = "11.0.1"
+modmenu-version = "11.0.3"
 curiosVersion = "8.0.2+1.20.6"
 trinkets-version = "3.10.0"
 cardinal-components-version = "6.1.1"
