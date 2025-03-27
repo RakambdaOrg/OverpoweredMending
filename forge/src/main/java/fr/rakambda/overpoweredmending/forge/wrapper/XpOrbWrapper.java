@@ -22,7 +22,7 @@ public class XpOrbWrapper implements IXpOrb{
 	
 	@Override
 	public void setExperienceAmount(int amount){
-		raw.value = amount;
+		raw.count = amount;
 	}
 	
 	@Override
