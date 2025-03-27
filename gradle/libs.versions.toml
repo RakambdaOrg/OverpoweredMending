@@ -5,24 +5,24 @@ lombok-version = "1.18.36"
 jetbrains-annotations-version = "26.0.2"
 log4j2-version = "2.24.1"
 
-minecraftVersion = "1.21.4"
-fabric-loader-version = "0.16.9"
-fabric-api-version = "0.111.0+1.21.4"
-forge-version = "1.21.4-54.0.6"
-neoforge-version = "21.4.9-beta"
+minecraftVersion = "1.21.5"
+fabric-loader-version = "0.16.10"
+fabric-api-version = "0.119.5+1.21.5"
+forge-version = "1.21.5-55.0.1"
+neoforge-version = "21.5.4-beta"
 
 # Mod dependencies
-modmenu-version = "13.0.3"
+modmenu-version = "14.0.0-rc.2"
 trinkets-version = "3.10.0"
-cardinal-components-version = "6.2.2"
+cardinal-components-version = "6.3.0"
 
-fabric-loom-version = "1.8+"
+fabric-loom-version = "1.10+"
 forge-plugin-version = "[6.0.24,6.2)"
 neoforge-plugin-version = "7.0+"
 curse-version = "1.4.0"
 modrinth-version = "2.8.7"
 names-version = "0.52.0"
-git-version-plugin-version = "3.1.0"
+git-version-plugin-version = "3.2.0"
 
 [libraries]
 lombok = { group = "org.projectlombok", name = "lombok", version.ref = "lombok-version" }

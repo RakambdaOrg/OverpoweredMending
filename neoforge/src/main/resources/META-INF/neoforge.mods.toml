@@ -15,7 +15,7 @@ authors = "Rakambda"
 [[dependencies.overpoweredmending]]
 modId = "neoforge"
 type = "required"
-versionRange = "[21.4,)"
+versionRange = "[21.5,)"
 ordering = "NONE"
 side = "BOTH"
 [[dependencies.overpoweredmending]]
