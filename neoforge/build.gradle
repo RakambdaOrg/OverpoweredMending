@@ -38,6 +38,8 @@ minecraft {
         channel = official()
         version.put "minecraft", libs.versions.minecraftVersion.get()
     }
+
+    accessTransformers.file('src/main/resources/META-INF/neoforge.accesstransformer.cfg')
 }
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
