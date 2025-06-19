@@ -14,6 +14,6 @@ public class OverpoweredMending{
 	private static final OverpoweredMendingImpl mod = new OverpoweredMendingImpl();
 	
 	public OverpoweredMending(){
-		mod.registerForge(MinecraftForge.EVENT_BUS);
+		mod.registerForge();
 	}
 }

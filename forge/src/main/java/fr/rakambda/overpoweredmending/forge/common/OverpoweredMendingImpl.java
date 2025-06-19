@@ -5,12 +5,13 @@ import fr.rakambda.overpoweredmending.common.wrapper.IItemStack;
 import fr.rakambda.overpoweredmending.forge.event.PlayerXpPickupEventHandler;
 import fr.rakambda.overpoweredmending.forge.wrapper.ItemStackWrapper;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.event.entity.player.PlayerXpEvent;
 import org.jetbrains.annotations.NotNull;
 
 public class OverpoweredMendingImpl extends OverpoweredMendingCommon{
-	public void registerForge(@NotNull IEventBus bus){
-		bus.register(new PlayerXpPickupEventHandler(this));
+	public void registerForge(){
+		var playerXpPickupEventHandler = new PlayerXpPickupEventHandler(this);
+		PlayerXpEvent.PickupXp.BUS.addListener(playerXpPickupEventHandler::onPlayerPickupXpEvent);
 	}
 	
 	@Override
