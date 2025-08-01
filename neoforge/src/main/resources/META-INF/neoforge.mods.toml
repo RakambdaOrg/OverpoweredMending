@@ -10,6 +10,9 @@ displayURL = "https://www.curseforge.com/minecraft/mc-mods/overpowered-mending"
 logoFile = "logo.png"
 authors = "Rakambda"
 
+[[accessTransformers]]
+file="META-INF/neoforge.accesstransformer.cfg"
+
 [[dependencies.overpoweredmending]]
 modId = "neoforge"
 type = "required"
