@@ -8,19 +8,19 @@ import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 @RequiredArgsConstructor
 @ToString
 public class PlayerWrapper implements IPlayer{
-	@NotNull
+	@NonNull
 	@Getter
 	private final Player raw;
 	
 	@Override
-	@NotNull
+	@NonNull
 	public Stream<IItemStack> streamInventory(){
 		var playerInventory = raw.getInventory();
 		return IntStream.range(0, playerInventory.getContainerSize())
@@ -34,7 +34,7 @@ public class PlayerWrapper implements IPlayer{
 	}
 	
 	@Override
-	public void sendPickup(@NotNull IXpOrb xp, int count){
+	public void sendPickup(@NonNull IXpOrb xp, int count){
 		raw.take((Entity) xp.getRaw(), count);
 	}
 	

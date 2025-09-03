@@ -5,7 +5,7 @@ import fr.rakambda.overpoweredmending.common.inventory.PlayerInventoryProvider;
 import fr.rakambda.overpoweredmending.common.wrapper.IItemStack;
 import fr.rakambda.overpoweredmending.common.wrapper.IPlayer;
 import fr.rakambda.overpoweredmending.common.wrapper.IXpOrb;
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.LinkedList;
@@ -18,11 +18,11 @@ public abstract class OverpoweredMendingCommon{
 		inventoryProviders.add(new PlayerInventoryProvider());
 	}
 	
-	public void addInventoryProvider(@NotNull IInventoryProvider provider){
+	public void addInventoryProvider(@NonNull IInventoryProvider provider){
 		inventoryProviders.add(provider);
 	}
 	
-	public boolean onXpPickedUp(@NotNull IPlayer player, @NotNull IXpOrb xpOrb){
+	public boolean onXpPickedUp(@NonNull IPlayer player, @NonNull IXpOrb xpOrb){
 		var item = getDamagedEnchantedItem(player);
 		
 		player.setExperiencePickUpDelay(2);
@@ -44,8 +44,8 @@ public abstract class OverpoweredMendingCommon{
 		return true;
 	}
 	
-	@NotNull
-	private IItemStack getDamagedEnchantedItem(@NotNull IPlayer player){
+	@NonNull
+	private IItemStack getDamagedEnchantedItem(@NonNull IPlayer player){
 		return inventoryProviders.stream()
 				.flatMap(provider -> provider.getInventoryContent(player))
 				.filter(is -> !is.isEmpty())
@@ -56,6 +56,6 @@ public abstract class OverpoweredMendingCommon{
 				.orElse(getEmptyItemStack());
 	}
 	
-	@NotNull
+	@NonNull
 	protected abstract IItemStack getEmptyItemStack();
 }

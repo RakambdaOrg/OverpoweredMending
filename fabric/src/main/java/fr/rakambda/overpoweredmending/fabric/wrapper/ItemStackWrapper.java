@@ -10,12 +10,12 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 @RequiredArgsConstructor
 @ToString
 public class ItemStackWrapper implements IItemStack{
-	@NotNull
+	@NonNull
 	@Getter
 	private final ItemStack raw;
 	

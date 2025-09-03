@@ -28,9 +28,9 @@ allprojects {
     }
 
     dependencies {
-        compileOnly(libs.jetbrainsAnnotations)
         compileOnly(libs.lombok)
         annotationProcessor(libs.lombok)
+        implementation("org.jspecify:jspecify:1.0.0") // TODO Use version catalog
     }
 
     repositories {

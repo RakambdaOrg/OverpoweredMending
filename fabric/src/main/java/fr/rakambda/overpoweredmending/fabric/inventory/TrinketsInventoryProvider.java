@@ -8,14 +8,14 @@ import fr.rakambda.overpoweredmending.common.wrapper.IPlayer;
 import fr.rakambda.overpoweredmending.fabric.wrapper.ItemStackWrapper;
 import net.minecraft.util.Tuple;
 import net.minecraft.world.entity.player.Player;
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 import java.util.Collection;
 import java.util.stream.Stream;
 
 public class TrinketsInventoryProvider implements IInventoryProvider{
 	@Override
-	@NotNull
-	public Stream<IItemStack> getInventoryContent(@NotNull IPlayer player){
+	@NonNull
+	public Stream<IItemStack> getInventoryContent(@NonNull IPlayer player){
 		return TrinketsApi.getTrinketComponent((Player) player.getRaw())
 				.stream()
 				.map(TrinketComponent::getAllEquipped)

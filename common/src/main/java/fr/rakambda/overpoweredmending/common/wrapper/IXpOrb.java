@@ -1,6 +1,6 @@
 package fr.rakambda.overpoweredmending.common.wrapper;
 
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 public interface IXpOrb extends IWrapper{
 	int getExperienceAmount();
@@ -9,6 +9,6 @@ public interface IXpOrb extends IWrapper{
 	
 	void discard();
 	
-	@NotNull
+	@NonNull
 	ILevel getLevel();
 }

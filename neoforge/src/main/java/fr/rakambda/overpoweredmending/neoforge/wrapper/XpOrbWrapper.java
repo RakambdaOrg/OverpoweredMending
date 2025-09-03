@@ -6,12 +6,12 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 import net.minecraft.world.entity.ExperienceOrb;
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 @RequiredArgsConstructor
 @ToString
 public class XpOrbWrapper implements IXpOrb{
-	@NotNull
+	@NonNull
 	@Getter
 	private final ExperienceOrb raw;
 	
@@ -31,7 +31,7 @@ public class XpOrbWrapper implements IXpOrb{
 	}
 	
 	@Override
-	@NotNull
+	@NonNull
 	public ILevel getLevel(){
 		return new LevelWrapper(raw.level());
 	}

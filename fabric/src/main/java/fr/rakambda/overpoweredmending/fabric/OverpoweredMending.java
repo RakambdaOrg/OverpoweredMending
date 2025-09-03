@@ -7,7 +7,7 @@ import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Optional;
 
@@ -23,7 +23,7 @@ public class OverpoweredMending implements ModInitializer{
 		initTrinkets().ifPresent(mod::addInventoryProvider);
 	}
 	
-	@NotNull
+	@NonNull
 	private Optional<IInventoryProvider> initTrinkets(){
 		if(FabricLoader.getInstance().isModLoaded("trinkets")){
 			try{

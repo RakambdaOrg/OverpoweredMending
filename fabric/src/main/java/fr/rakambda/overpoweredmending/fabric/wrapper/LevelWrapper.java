@@ -4,13 +4,13 @@ import fr.rakambda.overpoweredmending.common.wrapper.ILevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 import net.minecraft.world.level.Level;
 
 @RequiredArgsConstructor
 @ToString
 public class LevelWrapper implements ILevel{
-	@NotNull
+	@NonNull
 	@Getter
 	private final Level raw;
 	

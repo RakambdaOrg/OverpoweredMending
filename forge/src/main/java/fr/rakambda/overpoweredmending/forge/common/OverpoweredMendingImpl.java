@@ -6,7 +6,7 @@ import fr.rakambda.overpoweredmending.forge.event.PlayerXpPickupEventHandler;
 import fr.rakambda.overpoweredmending.forge.wrapper.ItemStackWrapper;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.player.PlayerXpEvent;
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 public class OverpoweredMendingImpl extends OverpoweredMendingCommon{
 	public void registerForge(){
@@ -15,7 +15,7 @@ public class OverpoweredMendingImpl extends OverpoweredMendingCommon{
 	}
 	
 	@Override
-	@NotNull
+	@NonNull
 	protected IItemStack getEmptyItemStack(){
 		return new ItemStackWrapper(ItemStack.EMPTY);
 	}
