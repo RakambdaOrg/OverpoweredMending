@@ -3,7 +3,7 @@
 [versions]
 lombok-version = "1.18.42"
 jspecify-version = "1.0.0"
-log4j2-version = "2.25.1"
+log4j2-version = "2.25.2"
 
 minecraftVersion = "1.21.8"
 fabric-loader-version = "0.16.14"
