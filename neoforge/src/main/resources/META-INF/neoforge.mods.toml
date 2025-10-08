@@ -16,7 +16,7 @@ file="META-INF/neoforge.accesstransformer.cfg"
 [[dependencies.overpoweredmending]]
 modId = "neoforge"
 type = "required"
-versionRange = "[21.8,)"
+versionRange = "[21.9,)"
 ordering = "NONE"
 side = "BOTH"
 [[dependencies.overpoweredmending]]
