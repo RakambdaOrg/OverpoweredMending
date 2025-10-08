@@ -55,6 +55,17 @@ allprojects {
             name = "Ladysnake Libs"
             url = "https://maven.ladysnake.org/releases"
         }
+        exclusiveContent {
+            forRepository {
+                maven {
+                    name = "Sponge"
+                    url = "https://repo.spongepowered.org/repository/maven-public"
+                }
+            }
+            filter {
+                includeGroupAndSubgroups("org.spongepowered")
+            }
+        }
     }
 
     if (version == null || version == "unspecified") {
