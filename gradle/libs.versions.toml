@@ -17,7 +17,7 @@ modmenu-version = "16.0.0-rc.1"
 trinkets-version = "3.10.0"
 cardinal-components-version = "7.2.0"
 
-fabric-loom-version = "1.12+"
+fabric-loom-version = "1.11+"
 forge-plugin-version = "[6.0.24,6.2)"
 neoforge-plugin-version = "7.0.192"
 curse-version = "1.4.0"
