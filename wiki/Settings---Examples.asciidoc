@@ -1,0 +1,10 @@
+Here you'll find examples of a fully filled configuration. Comments have been stripped away and can be found in the configuration generated.
+
+NOTE: This is purely an example, values there won't always make sense.
+
+[source,json]
+----
+{
+  "selectionMode": "PERCENTAGE"
+}
+----
