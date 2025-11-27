@@ -1,8 +1,8 @@
 package fr.rakambda.overpoweredmending.neoforge.event;
 
 import fr.rakambda.overpoweredmending.common.OverpoweredMendingCommon;
-import fr.rakambda.overpoweredmending.neoforge.wrapper.PlayerWrapper;
-import fr.rakambda.overpoweredmending.neoforge.wrapper.XpOrbWrapper;
+import fr.rakambda.overpoweredmending.neoforge.common.wrapper.PlayerWrapper;
+import fr.rakambda.overpoweredmending.neoforge.common.wrapper.XpOrbWrapper;
 import lombok.RequiredArgsConstructor;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;

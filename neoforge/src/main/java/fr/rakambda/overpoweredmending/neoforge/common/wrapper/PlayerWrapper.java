@@ -1,4 +1,4 @@
-package fr.rakambda.overpoweredmending.forge.wrapper;
+package fr.rakambda.overpoweredmending.neoforge.common.wrapper;
 
 import fr.rakambda.overpoweredmending.common.wrapper.IItemStack;
 import fr.rakambda.overpoweredmending.common.wrapper.IPlayer;

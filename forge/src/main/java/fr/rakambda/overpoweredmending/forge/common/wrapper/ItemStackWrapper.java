@@ -1,7 +1,7 @@
-package fr.rakambda.overpoweredmending.neoforge.wrapper;
+package fr.rakambda.overpoweredmending.forge.common.wrapper;
 
 import fr.rakambda.overpoweredmending.common.wrapper.IItemStack;
-import fr.rakambda.overpoweredmending.neoforge.OverpoweredMending;
+import fr.rakambda.overpoweredmending.forge.OverpoweredMending;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
@@ -27,6 +27,11 @@ public class ItemStackWrapper implements IItemStack{
 	@Override
 	public int getDamageValue(){
 		return raw.getDamageValue();
+	}
+	
+	@Override
+	public int getMaxDamage(){
+		return raw.getMaxDamage();
 	}
 	
 	@Override

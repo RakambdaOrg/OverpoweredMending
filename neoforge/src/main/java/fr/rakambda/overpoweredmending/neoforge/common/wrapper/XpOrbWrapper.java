@@ -1,4 +1,4 @@
-package fr.rakambda.overpoweredmending.neoforge.wrapper;
+package fr.rakambda.overpoweredmending.neoforge.common.wrapper;
 
 import fr.rakambda.overpoweredmending.common.wrapper.ILevel;
 import fr.rakambda.overpoweredmending.common.wrapper.IXpOrb;

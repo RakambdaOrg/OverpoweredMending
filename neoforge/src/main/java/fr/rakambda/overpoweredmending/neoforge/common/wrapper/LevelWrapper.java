@@ -1,4 +1,4 @@
-package fr.rakambda.overpoweredmending.forge.wrapper;
+package fr.rakambda.overpoweredmending.neoforge.common.wrapper;
 
 import fr.rakambda.overpoweredmending.common.wrapper.ILevel;
 import lombok.Getter;

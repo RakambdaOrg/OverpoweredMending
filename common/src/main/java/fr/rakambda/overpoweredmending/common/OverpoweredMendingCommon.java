@@ -1,21 +1,40 @@
 package fr.rakambda.overpoweredmending.common;
 
+import fr.rakambda.overpoweredmending.common.config.IConfiguration;
+import fr.rakambda.overpoweredmending.common.config.proxy.ProxyConfiguration;
+import fr.rakambda.overpoweredmending.common.config.real.Configuration;
 import fr.rakambda.overpoweredmending.common.inventory.IInventoryProvider;
 import fr.rakambda.overpoweredmending.common.inventory.PlayerInventoryProvider;
+import fr.rakambda.overpoweredmending.common.network.PacketUtils;
+import fr.rakambda.overpoweredmending.common.network.ServerPacketHandler;
 import fr.rakambda.overpoweredmending.common.wrapper.IItemStack;
 import fr.rakambda.overpoweredmending.common.wrapper.IPlayer;
 import fr.rakambda.overpoweredmending.common.wrapper.IXpOrb;
+import lombok.Getter;
 import org.jspecify.annotations.NonNull;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.LinkedList;
 
+@Getter
 public abstract class OverpoweredMendingCommon{
 	private static final int DURABILITY_PER_XP = 2;
+	
+	private final Configuration ownConfiguration;
+	private final ProxyConfiguration proxyConfiguration;
+	private final PacketUtils packetUtils;
 	private final Collection<IInventoryProvider> inventoryProviders = new LinkedList<>();
 	
 	public OverpoweredMendingCommon(){
+		ownConfiguration = Configuration.read();
+		proxyConfiguration = new ProxyConfiguration(ownConfiguration);
+		packetUtils = new PacketUtils(this);
+		
 		inventoryProviders.add(new PlayerInventoryProvider());
+	}
+	
+	public IConfiguration getConfiguration(){
+		return getProxyConfiguration();
 	}
 	
 	public void addInventoryProvider(@NonNull IInventoryProvider provider){
@@ -58,4 +77,7 @@ public abstract class OverpoweredMendingCommon{
 	
 	@NonNull
 	protected abstract IItemStack getEmptyItemStack();
+	
+	@NonNull
+	public abstract ServerPacketHandler getServerPacketHandler();
 }

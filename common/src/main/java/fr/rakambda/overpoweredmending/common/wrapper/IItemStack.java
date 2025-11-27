@@ -5,6 +5,8 @@ public interface IItemStack extends IWrapper{
 	
 	int getDamageValue();
 	
+	int getMaxDamage();
+	
 	void setDamageValue(int value);
 	
 	boolean isDamaged();
@@ -12,4 +14,8 @@ public interface IItemStack extends IWrapper{
 	boolean isDamageableItem();
 	
 	boolean isEmpty();
+	
+	default double getDamagePercentage(){
+		return ((double) getDamageValue()) / getMaxDamage();
+	}
 }
