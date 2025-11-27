@@ -13,7 +13,6 @@ import fr.rakambda.overpoweredmending.common.wrapper.IXpOrb;
 import lombok.Getter;
 import org.jspecify.annotations.NonNull;
 import java.util.Collection;
-import java.util.Comparator;
 import java.util.LinkedList;
 
 @Getter
@@ -71,7 +70,7 @@ public abstract class OverpoweredMendingCommon{
 				.filter(IItemStack::isDamageableItem)
 				.filter(IItemStack::isDamaged)
 				.filter(IItemStack::hasMendingEnchant)
-				.max(Comparator.comparingInt(IItemStack::getDamageValue))
+				.max(getConfiguration().getSelectionMode().getComparator())
 				.orElse(getEmptyItemStack());
 	}
 	

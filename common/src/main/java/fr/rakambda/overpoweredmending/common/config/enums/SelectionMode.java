@@ -7,7 +7,7 @@ import java.util.Comparator;
 
 @Getter
 @RequiredArgsConstructor
-public enum SelectionMode {
+public enum SelectionMode{
 	ABSOLUTE(Comparator.comparingInt(IItemStack::getDamageValue)),
 	PERCENTAGE(Comparator.comparingDouble(IItemStack::getDamagePercentage));
 	
