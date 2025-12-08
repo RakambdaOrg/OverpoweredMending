@@ -1,0 +1,16 @@
+= FAQ
+
+If you feel like some more info should be here, feel free to send your propositions.
+
+== Is the mod available for Minecraft X.X.X
+
+Check the files/versions tab and filter it by Minecraft version.
+
+* link:https://www.curseforge.com/minecraft/mc-mods/falling-tree/files/all[Curse]
+* link:https://modrinth.com/mod/fallingtree/versions[Modrinth]
+
+== When will it be available for Minecraft X.X.X
+
+I try to update it the fastest possible, usually within a week.
+For Fabric this is pretty quick as it is usually available as soon as Minecraft is out, so mostly within the 48h it is available.
+For Forge it'll depend on how long it takes for it to be released.

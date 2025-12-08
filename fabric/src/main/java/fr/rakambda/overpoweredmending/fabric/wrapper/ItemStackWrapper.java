@@ -30,6 +30,11 @@ public class ItemStackWrapper implements IItemStack{
 	}
 	
 	@Override
+	public int getMaxDamage(){
+		return raw.getMaxDamage();
+	}
+	
+	@Override
 	public void setDamageValue(int value){
 		raw.setDamageValue(value);
 	}

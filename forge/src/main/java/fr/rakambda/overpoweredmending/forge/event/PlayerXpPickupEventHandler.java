@@ -1,8 +1,8 @@
 package fr.rakambda.overpoweredmending.forge.event;
 
 import fr.rakambda.overpoweredmending.common.OverpoweredMendingCommon;
-import fr.rakambda.overpoweredmending.forge.wrapper.PlayerWrapper;
-import fr.rakambda.overpoweredmending.forge.wrapper.XpOrbWrapper;
+import fr.rakambda.overpoweredmending.forge.common.wrapper.PlayerWrapper;
+import fr.rakambda.overpoweredmending.forge.common.wrapper.XpOrbWrapper;
 import lombok.RequiredArgsConstructor;
 import net.minecraftforge.event.entity.player.PlayerXpEvent;
 

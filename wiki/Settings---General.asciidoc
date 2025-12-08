@@ -1,0 +1,10 @@
+[cols='1,4a']
+|===
+|Name |Description
+
+|Selection Mode
+|Defines how an item is selected to be repaired
+
+- ABSOLUTE: Repairs the item with the most damage first.
+- PERCENTAGE: Repairs the item with the most `damage/max damage` ratio first (basically repairs the item with its durability bar the lowest first).
+|===

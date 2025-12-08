@@ -1,7 +1,7 @@
 package fr.rakambda.overpoweredmending.fabric;
 
 import fr.rakambda.overpoweredmending.common.inventory.IInventoryProvider;
-import fr.rakambda.overpoweredmending.fabric.common.OverpoweredMendingImpl;
+import fr.rakambda.overpoweredmending.fabric.common.OverpoweredMendingCommonsImpl;
 import fr.rakambda.overpoweredmending.fabric.inventory.TrinketsInventoryProvider;
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
@@ -16,10 +16,12 @@ public class OverpoweredMending implements ModInitializer{
 	public static final String MOD_ID = "overpoweredmending";
 	
 	@Getter
-	private static final OverpoweredMendingImpl mod = new OverpoweredMendingImpl();
+	private static final OverpoweredMendingCommonsImpl mod = new OverpoweredMendingCommonsImpl();
 	
 	@Override
 	public void onInitialize(){
+		mod.register();
+		
 		initTrinkets().ifPresent(mod::addInventoryProvider);
 	}
 	
