@@ -19,6 +19,9 @@ You have several options :
 
 == GUI (not yet available)
 
+<details>
+<summary>In progress</summary>
+
 // WARNING: This method is only supported in both Fabric and Forge in 1.16.4+ releases.
 
 The config GUI offers you an easier way to edit the configuration.
@@ -43,3 +46,4 @@ You'll need 2 dependencies :
 When they are installed alongside FallingTree, you'll be able to go inside `Mods > OverpoweredMending > Config`.
 
 image::assets/settings/fabric-config-button.png[Config button in the mod list]
+</details>
