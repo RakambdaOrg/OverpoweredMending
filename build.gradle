@@ -11,6 +11,7 @@ buildscript {
 }
 
 plugins {
+    id("idea")
     alias(libs.plugins.curse)
     alias(libs.plugins.modrinth)
     alias(libs.plugins.names)
@@ -68,6 +69,14 @@ allprojects {
         }
     }
 
+    idea {
+        module {
+            for (fileName in ["run", "out", "logs"]) {
+                excludeDirs.add(file(fileName))
+            }
+        }
+    }
+
     if (version == null || version == "unspecified") {
         try {
             def details = versionDetails()
@@ -84,7 +93,9 @@ allprojects {
 
 def minecraftVersion = libs.versions.minecraftVersion.get()
 group = "fr.rakambda"
-archivesBaseName = "${project.modName}-${minecraftVersion}"
+base {
+    archivesName = "${project.modName}-${minecraftVersion}"
+}
 
 def relType = "release"
 def isAlpha = false

@@ -1,16 +1,16 @@
 package fr.rakambda.overpoweredmending.forge;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import org.jspecify.annotations.NonNull;
 
 public class OverpoweredMendingUtils{
 	@NonNull
-	public static ResourceLocation id(@NonNull String name){
-		return ResourceLocation.fromNamespaceAndPath(OverpoweredMending.MOD_ID, name);
+	public static Identifier id(@NonNull String name){
+		return Identifier.fromNamespaceAndPath(OverpoweredMending.MOD_ID, name);
 	}
 	
 	@NonNull
-	public static ResourceLocation idExternal(@NonNull String fullName){
-		return ResourceLocation.parse(fullName);
+	public static Identifier idExternal(@NonNull String fullName){
+		return Identifier.parse(fullName);
 	}
 }
