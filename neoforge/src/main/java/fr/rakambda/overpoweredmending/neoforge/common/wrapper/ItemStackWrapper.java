@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
@@ -21,7 +21,7 @@ public class ItemStackWrapper implements IItemStack{
 	
 	@Override
 	public boolean hasMendingEnchant(){
-		return EnchantmentHelper.hasTag(raw, TagKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(OverpoweredMending.MOD_ID, "mending")));
+		return EnchantmentHelper.hasTag(raw, TagKey.create(Registries.ENCHANTMENT, Identifier.fromNamespaceAndPath(OverpoweredMending.MOD_ID, "mending")));
 	}
 	
 	@Override
