@@ -68,7 +68,7 @@ tasks {
         from("src/main/resources", "../common/src/main/resources")
 
         filesMatching("META-INF/neoforge.mods.toml") {
-            expand(project.properties + mapOf<String, String>("minecraftVersion" to libs.versions.minecraftVersion.get()))
+            expand(project.properties + mapOf("minecraftVersion" to libs.versions.minecraftVersion.get()))
         }
     }
 }

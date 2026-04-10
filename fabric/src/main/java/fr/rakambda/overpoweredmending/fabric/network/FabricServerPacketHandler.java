@@ -14,7 +14,7 @@ public class FabricServerPacketHandler implements ServerPacketHandler{
 	
 	@Override
 	public void registerServer(){
-		PayloadTypeRegistry.configurationS2C().register(OverpoweredMendingConfigPacket.TYPE, OverpoweredMendingConfigPacket.CODEC);
+		PayloadTypeRegistry.clientboundConfiguration().register(OverpoweredMendingConfigPacket.TYPE, OverpoweredMendingConfigPacket.CODEC);
 		ServerConfigurationConnectionEvents.CONFIGURE.register(((handler, server) -> {
 			var packet = ConfigurationPacket.get(server.isDedicatedServer(), mod.getConfiguration());
 			ServerConfigurationNetworking.send(handler, new OverpoweredMendingConfigPacket(packet));

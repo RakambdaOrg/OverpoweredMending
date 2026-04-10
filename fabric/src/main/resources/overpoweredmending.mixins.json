@@ -1,8 +1,7 @@
 {
   "required": true,
-  "minVersion": "0.8",
   "package": "fr.rakambda.overpoweredmending.fabric.mixin",
-  "compatibilityLevel": "JAVA_21",
+  "compatibilityLevel" : "JAVA_25",
   "mixins": [
     "ExperienceOrbMixin"
   ],
@@ -10,5 +9,8 @@
   "server": [],
   "injectors": {
     "defaultRequire": 1
+  },
+  "overwrites" : {
+    "requireAnnotations" : true
   }
 }
