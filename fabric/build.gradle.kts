@@ -4,15 +4,14 @@ plugins {
 
 dependencies {
     minecraft(libs.minecraft)
-    mappings(loom.officialMojangMappings())
 
-    modImplementation(libs.bundles.fabric) {
+    implementation(libs.bundles.fabric) {
         exclude(module = "fabric-api-deprecated")
     }
 
     implementation(project(":common"))
 
-    modImplementation(libs.modmenu)
+    api(libs.modmenu)
 }
 
 tasks {
@@ -24,12 +23,6 @@ tasks {
         filesMatching("fabric.mod.json") {
             expand(project.properties)
         }
-    }
-
-    compileJava {
-        options.encoding = "UTF-8"
-        options.isDeprecation = true
-        options.release.set(21)
     }
 }
 
