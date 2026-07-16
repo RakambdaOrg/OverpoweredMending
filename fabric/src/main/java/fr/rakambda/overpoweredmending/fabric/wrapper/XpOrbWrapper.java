@@ -1,6 +1,5 @@
 package fr.rakambda.overpoweredmending.fabric.wrapper;
 
-import fr.rakambda.overpoweredmending.common.wrapper.ILevel;
 import fr.rakambda.overpoweredmending.common.wrapper.IXpOrb;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -21,17 +20,17 @@ public class XpOrbWrapper implements IXpOrb{
 	}
 	
 	@Override
-	public void setExperienceAmount(int amount){
+	public int getCount(){
+		return raw.count;
+	}
+	
+	@Override
+	public void setCount(int count){
+		raw.count = count;
 	}
 	
 	@Override
 	public void discard(){
 		raw.discard();
-	}
-	
-	@Override
-	@NonNull
-	public ILevel getLevel(){
-		return new LevelWrapper(raw.level());
 	}
 }
