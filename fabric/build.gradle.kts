@@ -30,8 +30,6 @@ loom {
     val modId: String by project
 
     splitEnvironmentSourceSets()
-    
-    accessWidenerPath.set(file("src/main/resources/fabric.accesstransformer.cfg"))
 
     mods {
         create(modId) {

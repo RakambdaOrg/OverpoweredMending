@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 import net.minecraft.world.entity.ExperienceOrb;
 import org.jspecify.annotations.NonNull;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 @RequiredArgsConstructor
 @ToString
@@ -13,6 +15,10 @@ public class XpOrbWrapper implements IXpOrb{
 	@NonNull
 	@Getter
 	private final ExperienceOrb raw;
+	@NonNull
+	private final Supplier<Integer> countGetter;
+	@NonNull
+	private final Consumer<Integer> countSetter;
 	
 	@Override
 	public int getExperienceAmount(){
@@ -21,12 +27,12 @@ public class XpOrbWrapper implements IXpOrb{
 	
 	@Override
 	public int getCount(){
-		return raw.count;
+		return countGetter.get();
 	}
 	
 	@Override
 	public void setCount(int count){
-		raw.count = count;
+		countSetter.accept(count);
 	}
 	
 	@Override
