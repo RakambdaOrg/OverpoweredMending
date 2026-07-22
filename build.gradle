@@ -51,10 +51,10 @@ allprojects {
             name = 'CurseForge'
             url = 'https://minecraft.curseforge.com/api/maven'
         }
-        maven {
-            name = "TerraformersMC" // ModMenu & Trinkets
-            url = "https://maven.terraformersmc.com/releases/"
-        }
+        // maven {
+        //     name = "TerraformersMC" // ModMenu & Trinkets
+        //     url = "https://maven.terraformersmc.com/releases/"
+        // }
         maven {
             name = "Curios"
             url = "https://maven.theillusivec4.top/"
