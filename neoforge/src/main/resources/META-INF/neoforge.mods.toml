@@ -7,7 +7,7 @@ version = "${version}"
 displayName = "${modName}"
 description = '''Changes Mending behaviour to repair what is in your inventory and need it the most. No need to have it equipped anymore.'''
 displayURL = "https://www.curseforge.com/minecraft/mc-mods/overpowered-mending"
-logoFile = "logo.png"
+iconFile = "logo.png"
 authors = "Rakambda"
 
 [[accessTransformers]]
@@ -16,7 +16,7 @@ file="META-INF/neoforge.accesstransformer.cfg"
 [[dependencies.overpoweredmending]]
 modId = "neoforge"
 type = "required"
-versionRange = "[26.2.0,)"
+versionRange = "[26.3.0.0,)"
 ordering = "NONE"
 side = "BOTH"
 [[dependencies.overpoweredmending]]
