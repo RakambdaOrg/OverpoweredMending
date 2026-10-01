@@ -51,14 +51,17 @@ public abstract class OverpoweredMendingCommon{
 		while(!item.isEmpty() && xpAmount > 0){
 			var realRepair = Math.min(xpAmount * DURABILITY_PER_XP, item.getDamageValue());
 			xpAmount -= realRepair / DURABILITY_PER_XP;
-			xpOrb.setExperienceAmount(xpAmount);
 			item.setDamageValue(item.getDamageValue() - realRepair);
 			item = getDamagedEnchantedItem(player);
 		}
 		if(xpAmount > 0){
 			player.addExperience(xpAmount);
 		}
-		xpOrb.discard();
+		
+		xpOrb.setCount(xpOrb.getCount() - 1);
+		if(xpOrb.getCount() <= 0){
+			xpOrb.discard();
+		}
 		return true;
 	}
 	

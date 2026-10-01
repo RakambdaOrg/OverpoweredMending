@@ -15,11 +15,6 @@ public class FriendlyByteBufWrapper implements IFriendlyByteBuf{
 	private final FriendlyByteBuf raw;
 	
 	@Override
-	public void writeDouble(double value){
-		raw.writeDouble(value);
-	}
-	
-	@Override
 	public void writeInteger(int value){
 		raw.writeInt(value);
 	}
@@ -27,11 +22,6 @@ public class FriendlyByteBufWrapper implements IFriendlyByteBuf{
 	@Override
 	public void writeBoolean(boolean value){
 		raw.writeBoolean(value);
-	}
-	
-	@Override
-	public double readDouble(){
-		return raw.readDouble();
 	}
 	
 	@Override
