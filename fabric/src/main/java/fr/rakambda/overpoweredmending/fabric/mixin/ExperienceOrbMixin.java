@@ -3,6 +3,7 @@ package fr.rakambda.overpoweredmending.fabric.mixin;
 import fr.rakambda.overpoweredmending.fabric.OverpoweredMending;
 import fr.rakambda.overpoweredmending.fabric.wrapper.PlayerWrapper;
 import fr.rakambda.overpoweredmending.fabric.wrapper.XpOrbWrapper;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.player.Player;
 import org.spongepowered.asm.mixin.Mixin;
@@ -20,7 +21,8 @@ public class ExperienceOrbMixin{
 	public void onPlayerCollision(Player player, CallbackInfo callbackInfo){
 		var orb = (ExperienceOrb) (Object) this;
 		
-		if(callbackInfo.isCancelled()){
+		// Same conditions as vanilla before it picks up the orb (NeoForge/Forge events are only fired after these)
+		if(callbackInfo.isCancelled() || !(player instanceof ServerPlayer) || player.takeXpDelay != 0){
 			return;
 		}
 		
